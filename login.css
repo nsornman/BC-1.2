@@ -1,0 +1,154 @@
+body{
+    background: 
+        linear-gradient(rgba(22, 40, 68, 0.65), rgba(22, 40, 68, 0.65)) no-repeat, 
+        url("bg.jpg") no-repeat;
+    background-blend-mode: multiply;
+    background-size: 60% 100%;
+    background-attachment: fixed;
+}   
+/* ------------------------------Nav Bar--------------------------------------- */
+.navbar{
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2vw;
+    color: #fff;
+    background-color: rgba(22, 40, 68, 1);
+    width: 100%;
+    height: 3vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+}
+
+.navbar .head{
+    position: absolute;
+    left: 50%;
+    top: -1.7vw;
+    text-align: center;
+    font-size: 2vw;  
+}
+.navbar .logo-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1vw;
+}
+.navbar .logo{
+    width: 2vw;
+    height: 2.5vw;
+    padding-top: 0vw;
+}
+.navbar .school_name{
+    padding-left: 0.5vw;
+    display: inline-block;
+}
+@media screen and (max-width: 430px) {
+    body{
+        background: 
+            linear-gradient(rgba(22, 40, 68, 0.65), rgba(22, 40, 68, 0.65)) no-repeat, 
+            url("bg.jpg") no-repeat;
+        background-blend-mode: multiply;
+        background-size: 100% 40%;
+        background-attachment: fixed;
+    }
+    .navbar{
+            
+        display: flex;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1.2vw;
+        color: #fff;
+        background-color: rgba(22, 40, 68, 1);
+        width: 100%;
+        height: 15vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+    
+    }
+    .navbar .school_name{
+        display: none;
+    }
+    .navbar .logo{
+        width: 7vw;
+        height: 9vw;
+    }
+    .navbar .head{
+        left: 50%;
+        top: -4.5vw;
+        font-size: 7vw;
+        transform: translateX(-50%);
+    }
+    .login-part{
+        position:relative;
+        margin: 30vw 25vw 0vw 0vw;
+    }
+    .login-part .welcome{
+        font-size: 10vw !important;
+    }
+}
+/* ------------------------------Login--------------------------------------- */
+.login-part{
+    position:absolute;
+    top: 50%; 
+    right: 12vw; 
+    transform: translateY(-50%);
+    font-family:'Poppins', sans-serif ;
+}
+.login-part .welcome{
+    font-size: 3vw;
+}
+.login-part .line{
+    width: 15vw;
+    height: 0.1vw;
+    background-color: #000;
+    margin: 8px 0;
+}
+.login-part input{
+    background-color: #F1F6FF;
+    border: none;
+    margin: 0.5vw 0;
+    padding: 0.6vw;
+    border-radius: 0.2vw;
+    display: block;   
+    width: 15vw;
+    height: 1vw;
+    font-size: 1vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.login-part .student-id{
+    font-size: 1.1vw;
+}
+/* .student-id input{
+    width: 10vw;
+    font-size: 0.9vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} */
+.login-part .password{
+    font-size: 1.1vw;
+}
+.password-icon{
+    position: absolute;
+    margin-left: 14.2vw;
+    margin-top: -2.2vw;
+    cursor: pointer;
+    font-size: 1.3vw;
+}
+
+.login-part button{
+    background-color: rgba(4, 21, 48, 1);
+    color: #fff;
+    font-size: 1.1vw;
+    padding: 0.2vw 1vw;
+    border: 0.1vw solid transparent;
+    border-radius: 0.2vw;
+    cursor: pointer;
+    margin-left: 10.5vw;
+    margin-top: 1.2vw;
+}
+.login-part button:hover{
+    background-color:rgb(58, 95, 156);
+    color: rgb(255, 255, 255);
+    transition: 0.2s;
+}
+

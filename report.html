@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="report.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-info">
+            <img class="logo" src="cropped-bodin.png" alt="logo">
+            <p class="school_name">Bodindecha (Sing Singhaseni) school</p>
+        </div>
+        <ul class="container">
+            <li class = "home">
+                <a href="home.html">Home</a>
+            </li>
+            <li class = "report">
+                <a href="report.html">Report</a>
+            </li>
+            <li class="contact">
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <div class = "box-bg">
+        <div class = "top">
+            <p class = "topic">Place</p>
+            <div class = "line-1"></div>
+            <div class = "top-info">
+                <div class = "place">สถานที่ <input type="text"></div>
+                <div class="path2">
+                    <div class = "floor">ชั้น <input type="text"></div>
+                    <div class= "room">ห้อง <input type="text"></div>
+                </div>   
+            </div>
+        </div>
+        <div class = "middle">
+            <p class = "topic">Problem</p>
+            <div class = "line-2"></div>
+            <div class = "type">ประเภท 
+                <input name="section" list="pro-type">
+                <datalist id="pro-type">
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="พื้นบึ้ม"></option>
+                </datalist>
+            </div>
+            <div class = "to-info">
+                <div class = "more-info">คำอธิบาย</div>
+                <textarea placeholder="กรุณาอธิบายเพิ่มเติม . . ."></textarea> 
+            </div>  
+        </div>
+        <div class = "root">
+            <!-- <button class="btn-submit">Submit</button> -->
+            <button class="button2">submit</button>
+        </div>  
+    </div>
+</body>
+</html>
