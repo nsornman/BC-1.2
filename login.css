@@ -4,7 +4,7 @@ body{
         url("bg.jpg") no-repeat;
     background-blend-mode: multiply;
     background-size: 60% 100%;
-    background-attachment: fixed;
+    background-attachment: fixed; 
 }   
 /* ------------------------------Nav Bar--------------------------------------- */
 .navbar{
@@ -43,7 +43,7 @@ body{
     padding-left: 0.5vw;
     display: inline-block;
 }
-@media screen and (max-width: 430px) {
+@media (max-width: 430px) {
     body{
         background: 
             linear-gradient(rgba(22, 40, 68, 0.65), rgba(22, 40, 68, 0.65)) no-repeat, 
@@ -60,7 +60,7 @@ body{
         color: #fff;
         background-color: rgba(22, 40, 68, 1);
         width: 100%;
-        height: 15vw;
+        height: 13vw;
         position: fixed;
         top: 0;
         left: 0;
@@ -80,11 +80,16 @@ body{
         transform: translateX(-50%);
     }
     .login-part{
-        position:relative;
+        position:absolute;
         margin: 30vw 25vw 0vw 0vw;
     }
     .login-part .welcome{
-        font-size: 10vw !important;
+        font-size: 10vw;
+    }
+    .login-part .line{
+        width: 100vw;
+        height: 0.1vw;
+        background-color: #000;
     }
 }
 /* ------------------------------Login--------------------------------------- */
@@ -102,7 +107,7 @@ body{
     width: 15vw;
     height: 0.1vw;
     background-color: #000;
-    margin: 8px 0;
+    margin: 0.7vw 0;
 }
 .login-part input{
     background-color: #F1F6FF;
