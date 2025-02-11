@@ -1,0 +1,78 @@
+body{
+    background-color: rgb(164, 164, 164);
+}
+/* ------------------------------Nav Bar--------------------------------------- */
+.navbar{
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2vw;
+    color: #fff;
+    background-color: rgba(22, 40, 68, 1);
+    width: 100%;
+    height: 3vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.navbar .logo-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1vw;
+}
+.navbar .logo{
+    width: 2vw;
+    height: 2.5vw;
+    padding-top: 0vw;
+}
+.navbar .school_name{
+    margin-right: -10vw;
+    margin-left: 1vw;
+}
+.navbar .container{
+    display: flex;
+    margin-left: 45vw;
+}
+.navbar li{
+    display: flex;
+    padding: 0 3vw 0 2vw;
+    align-items: center;
+}
+.navbar a{
+    /* display: flex; */
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    padding: 0 2vw;
+    /* justify-content: space-between; */
+}
+.navbar a::before{
+    content: "";
+    position: absolute;
+    background-color: #ffffff;
+    height: 0.2vw;
+    width: 0%;
+    left: 0;
+    bottom: -0.85vw;
+    transition: all 0.5s ease-in-out;
+}
+.navbar a:hover:before{
+    width: 100%;
+}
+/* ---------------------report-box--------------------------- */
+.Report-box{
+    height: 45vw;
+    width: 25vw;
+    background-color: #fff;
+    position: relative;
+    font-size: 1.4vw;
+    border-radius: 1vw;
+    padding-left: 3vw;
+    margin-top: 4.5vw;
+}
+.top{
+    font-family: "Poppins" , serif;
+    font-weight: bold;
+    display: flex;
+    gap: 15vw;
+}
