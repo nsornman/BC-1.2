@@ -62,17 +62,48 @@ body{
 /* ---------------------report-box--------------------------- */
 .Report-box{
     height: 45vw;
-    width: 25vw;
+    width: 30vw;
     background-color: #fff;
     position: relative;
     font-size: 1.4vw;
     border-radius: 1vw;
-    padding-left: 3vw;
     margin-top: 4.5vw;
+    margin-left: 1.5vw;
 }
 .top{
     font-family: "Poppins" , serif;
     font-weight: bold;
     display: flex;
     gap: 15vw;
+    margin: 0 0 0 4vw;
+}
+.Report-box .line{
+    width: 26vw;
+    height: 0.2vw;
+    background-color: rgb(0, 0, 0);
+    margin: -0.5vw 0 0 2vw;
+}
+.re-info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+}
+.case{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: "Anuphan" , serif;
+    gap: 9vw;
+    font-size: 1.2vw;
+}
+.btn{
+    font-family: "Poppins", serif;
+    font-weight: bold;
+    color: #ffffff;
+    width: 7vw;
+    height: 2vw;
+    background-color: #DEB364;
+    padding: 0 1.5vw 0 2vw;
+    border: #DEB364;
+    border-radius: 2vw;
 }
