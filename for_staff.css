@@ -107,3 +107,7 @@ body{
     border: #DEB364;
     border-radius: 2vw;
 }
+i{
+    position: absolute;
+    margin: 0.3vw 0 0 0.5vw;
+}
