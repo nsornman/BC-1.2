@@ -5,11 +5,11 @@ body{
 .navbar{
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.2vw;
+    font-size: 2.5vh;
     color: #fff;
     background-color: rgba(22, 40, 68, 1);
     width: 100%;
-    height: 3vw;
+    height: 7vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -21,8 +21,8 @@ body{
     margin-left: 1vw;
 }
 .navbar .logo{
-    width: 2vw;
-    height: 2.5vw;
+    width: 4vh;
+    height: 5.5vh;
     padding-top: 0vw;
 }
 .navbar .school_name{
@@ -31,7 +31,7 @@ body{
 }
 .navbar .container{
     display: flex;
-    margin-left: 45vw;
+    margin-left: 40vw;
 }
 .navbar li{
     display: flex;
@@ -79,7 +79,7 @@ body{
 .list-container {
     width: 30vw;
     height: 9vw;
-    margin: 36vw 0 0 1.5vw;
+    margin: 41vw 0 0 1.5vw; 
     border: none; /* เส้นขอบรอบ */
     border-radius: 1vw; /* มุมโค้งมน */
     padding: 1.2vw 0 0 0;
@@ -111,4 +111,25 @@ body{
     font-size: 1.2vw;
     color: #000; /* สีตัวเลข */
     padding-right: 1vw;
+}
+@media (max-width: 768px){
+    .navbar .container{
+        display: flex;
+        margin-left: 15vw;
+    }
+    .list-container{
+        width: 90vw;
+        margin: 20vw 0 0 1.5vw;
+    }
+    .list-item{
+        font-size: 3vw;
+    }
+    .line{
+        width: 88vw;
+        height: 0.3vw;
+        margin-left: 1vw;
+    }
+    .number{
+        font-size: 3vw;
+    }
 }
