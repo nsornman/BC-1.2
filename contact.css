@@ -5,15 +5,14 @@ body{
 .navbar{
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.2vw;
+    font-size: 2.5vh;
     color: #fff;
-    background-color: #162844;
+    background-color: rgba(22, 40, 68, 1);
     width: 100%;
-    height: 3vw;
+    height: 7vh;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1001;
 }
 .navbar .logo-info{
     display: flex;
@@ -22,8 +21,8 @@ body{
     margin-left: 1vw;
 }
 .navbar .logo{
-    width: 2vw;
-    height: 2.5vw;
+    width: 4vh;
+    height: 5.5vh;
     padding-top: 0vw;
 }
 .navbar .school_name{
@@ -32,7 +31,7 @@ body{
 }
 .navbar .container{
     display: flex;
-    margin-left: 45vw;
+    margin-left: 40vw;
 }
 .navbar li{
     display: flex;
@@ -60,61 +59,70 @@ body{
 .navbar a:hover:before{
     width: 100%;
 }
+.navbar .icon-container{
+    display: none;
+    outline: none;
+}
 /* -------------------------------------------content-------------------------------------- */
 .all{
     font-size: 1vw;
-    margin-top: 5vw;
+    margin-top: 10vh;
     margin-left: 5vw;
 }
-.all p{
+.all .head{
     font-size: 1.7vw;
     font-family: "Poppins", serif;
     font-weight: bold;
     margin-bottom: 0.8vw;
 }
-.all pre{
-    margin-left: -7vw;
-}
+
 /* -------------------------------------------BD------------------------------------------- */
 .line-1{
     width: 25vw;
-    height: 0.15vw;
+    height: 0.2vw;
     background-color: #000000;
 }
-.th pre{
-    font-family: "Anuphan", serif;
-    margin-left: -4vw;
+.BD-C{
+    margin-left: 2vw;
 }
-.en pre{
+.th p{
+    font-family: "Anuphan", serif;
+}
+.en p{
     font-family: "Poppins", serif;
-    margin-left: -4.7vw;
 }
 .school iframe{
     position: absolute;
-    margin: -20vw 0 0 49vw;
+    margin: -18vw 0 0 49vw;
     width: 40vw;
     height: 30vw;
-    z-index: 1;
+    /* z-index: 1; */
     border-radius: 1vw;
     outline: none;
 }
 /* -------------------------------------------DEV------------------------------------------- */
 .line-2{
     width: 25vw;
-    height: 0.2vw;
+    height: 0.15vw;
     background-color: #000000;
 }
-.dev .name-list{
+.name-list{
+    margin-left: 2vw;
+    display: grid;
+    grid-template-columns: 20vw 20vw;
+    row-gap: -50vh;
+}
+/* .dev .name-list{
     margin-left: 3.15vw;
     display: flex;
     gap: 10vw;
-}
-.name-list pre{
+} */
+.name-list p{
     font-family: "Anuphan", serif;
 }
-.name-list .ron{
+/* .name-list .ron{
     margin: 5.5vw 0 0 -48.3vw;
-}
+} */
 /* -------------------------------------------THANK------------------------------------------- */
 .line-3{
     width: 25vw;
@@ -126,4 +134,81 @@ body{
     font-weight: normal;
     font-size: 1vw;
     margin: 0.8vw 0 0vw 1.8vw;   
+}
+
+@media (max-width: 1024px){
+    .navbar .school_name{
+        display: none;
+    }
+    .navbar .container{
+        margin-left: 32vw;
+    }
+    .all{
+        font-size: 2vw;
+        margin-top: 10vh;
+        margin-left: 5vw;
+    }
+    .all .head{
+        font-size: 2.5vw;
+        font-family: "Poppins", serif;
+        font-weight: bold;
+        margin-bottom: 0.8vw;
+    }
+    .name-list{
+        grid-template-columns: 30vw 30vw;
+    }
+    .ppt p{
+        font-size: 2vw;
+    }
+    .school iframe{
+        margin: 60vw 0 0 9vw;
+        width: 70vw;
+        height: 50vw;
+        padding-bottom: 10vw;
+    }
+}
+@media (max-width: 431px){
+    .navbar .school_name{
+        display: none;
+    }
+    .navbar .container{
+        display: none;
+        margin-left: 32vw;
+    }
+    .navbar .icon-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: 50vw;
+        font-size: 6.4vw;
+        gap: 1.8vw;
+    }
+    .all{
+        font-size: 3vw;
+    }
+    .all .head{
+        font-size: 5vw;
+    }
+    .name-list{
+        grid-template-columns: 1fr
+    }
+    .line-1{
+        width: 55vw;
+        height: 0.7vw;
+    }
+    .school iframe{
+        margin: 100vw 0 0 9vw;
+    }
+    .line-2{
+        width: 55vw;
+        height: 0.65vw;
+    }
+    .line-3{
+        width: 55vw;
+        height: 0.55vw;
+    }
+    .ppt p{
+        font-size: 3vw;
+    }
+    
 }

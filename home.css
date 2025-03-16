@@ -59,6 +59,9 @@ body{
 .navbar a:hover:before{
     width: 100%;
 }
+.navbar .icon-container{
+    display: none;
+}
 /* ------------------------------------------content-------------------------------------------- */
 /* .report-info{
     background-color: #fff;
@@ -77,9 +80,10 @@ body{
     padding: 0 2vw 0 2vw;
 } */
 .list-container {
+    position: relative;
     width: 30vw;
     height: 9vw;
-    margin: 41vw 0 0 1.5vw; 
+    margin: 78vh 0 0 1.5vw; 
     border: none; /* เส้นขอบรอบ */
     border-radius: 1vw; /* มุมโค้งมน */
     padding: 1.2vw 0 0 0;
@@ -112,24 +116,73 @@ body{
     color: #000; /* สีตัวเลข */
     padding-right: 1vw;
 }
-@media (max-width: 768px){
+@media (max-width: 1180px){
     .navbar .container{
         display: flex;
-        margin-left: 15vw;
+        margin-left:  32vw;
     }
-    .list-container{
-        width: 90vw;
-        margin: 20vw 0 0 1.5vw;
+    .list-container {
+        position: relative;
+        width: 35vw;
+        height: 12vw;
+        margin: 78vh 0 0 1.5vw; 
     }
-    .list-item{
-        font-size: 3vw;
+    .list-item {
+        align-items: center;
+        padding: 0.7vw 0 1vw 1.2vw;
+        font-size: 1.5vw;
+        font-weight: normal;
+        color: #333; /* สีข้อความ */ 
     }
     .line{
-        width: 88vw;
-        height: 0.3vw;
+        width: 33vw;
+        height: 0.15vw;
         margin-left: 1vw;
+        border-radius: 1vw;
     }
-    .number{
-        font-size: 3vw;
+}
+@media (max-width: 1024px){
+    .navbar .container{
+        display: flex;
+        margin-left:  32vw;
+    }
+    .list-container{
+        margin: 78vh 0 0 1.5vw;
+    }
+}
+@media (max-width: 431px){
+    .navbar .school_name{
+        display: none;
+    }
+    .navbar .container{
+        display: none;
+        margin-left:  32vw;
+    }
+    .navbar .icon-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: 50vw;
+        font-size: 6.4vw;
+        gap: 1.8vw;
+    }
+    .list-container{
+        margin: 78vh 0 0 8vw;
+        width: 80vw;
+        height: 35vw;
+    }
+    .list-item {
+        font-size: 5vw;
+        padding: 3vw 0 1vw 2.5vw;
+    }
+    .line{
+        width: 75vw;
+        height: 0.5vw;
+        margin-left: 2vw;
+        border-radius: 1vw;
+    }
+    .number {
+        font-size: 5vw;
+        padding-right: 3vw;
     }
 }
