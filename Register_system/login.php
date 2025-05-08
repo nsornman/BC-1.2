@@ -20,27 +20,31 @@
             <p>Login</p>
         </div> -->
     </nav>
-    <div class = "login-part">
+    <form class = "login-part" action = "Register_system/login_process.php" method="post">
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="error-msg"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
+        <?php endif; ?>
         <div class = "element">
             <div class = "m-b"></div>
             <b><div class = "welcome">Welcome !</div></b>
             <div class = "line"></div>
             <div class = "fill">
                 <div class = "student-id">
-                    <div>Student Id</div>
-                    <input type="text" placeholder="Don't add @bodin.ac.th" required>
+                    <label for="std_id">Student Id</label>
+                    <input type="number" name = "std_id" placeholder="Don't add @bodin.ac.th" required>
                 </div>
                 <div class = "password">
-                    <div>Password</div>
-                    <input type="password" id="password" required>
+                    <label for="pass">Password</label>
+                    <input type="password" id="password" name="password" required>
                     <i id = "eyepassword" class="fa-solid fa-eye password-icon" style="color: #3a5f9c;"></i>
                 </div>
                 <div class ="but-log">
-                    <a href="home.html"><button >Login <i class="fa-solid fa-caret-right fa-sm" style="color: #ffffff;"></i></button></a>
+                    <!-- <a href="../PHP/home.php"><button type = "submit" name="login_user">Login <i class="fa-solid fa-caret-right fa-sm" style="color: #ffffff;"></i></button></a> -->
+                    <button type = "submit" name="login_user">Login <i class="fa-solid fa-caret-right fa-sm" style="color: #ffffff;"></i></button>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     <script src="../JS/login.js"></script>
 </body>
 </html>

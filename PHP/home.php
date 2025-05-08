@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        $_SESSION['msg'] = "Please login first.";
+        header("Location: Register_system/login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +23,13 @@
         </div>
         <ul class="container">
             <li class = "home">
-                <a href="home.html">Home</a>
+                <a href="home.php">Home</a>
             </li>
             <li class = "report">
-                <a href="report.html">Report</a>
+                <a href="../HTML/report.html">Report</a>
             </li>
             <li class="contact">
-                <a href="contact.html">Contact</a>
+                <a href="../HTML/contact.html">Contact</a>
             </li>
         </ul>
         <div class = "icon-container">

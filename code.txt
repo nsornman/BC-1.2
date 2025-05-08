@@ -1,0 +1,24 @@
+<!-- <script>
+        document.querySelector(".login-part").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const std_id = document.querySelector('input[name="std_id"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            const response = await fetch("http://localhost/project/api/login_api.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username: std_id, password: password })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert("เข้าสู่ระบบสำเร็จ: " + result.name);
+            } else {
+                alert(result.message);
+            }
+        });
+    </script> -->
