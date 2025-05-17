@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // ล้มเหลว กลับไป login พร้อมข้อความ
         $_SESSION['error'] = $result['message'] ?? 'เข้าสู่ระบบไม่สำเร็จ';
-        header('Location: ../login.html');
+        header('Location: ../Register_system/login.php');
         exit();
     }
 }

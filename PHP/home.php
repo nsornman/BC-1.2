@@ -1,9 +1,9 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['username'])) {
-        $_SESSION['msg'] = "Please login first.";
-        header("Location: Register_system/login.php");
-    }
+    // session_start();
+    // if (!isset($_SESSION['username'])) {
+    //     $_SESSION['msg'] = "Please login first.";
+    //     header("Location: ../Register_system/login.php");
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@
                 <a href="home.php">Home</a>
             </li>
             <li class = "report">
-                <a href="../HTML/report.html">Report</a>
+                <a href="../Report_system/report.php">Report</a>
             </li>
             <li class="contact">
                 <a href="../HTML/contact.html">Contact</a>

@@ -20,10 +20,10 @@
             <p>Login</p>
         </div> -->
     </nav>
-    <form class = "login-part" action = "Register_system/login_process.php" method="post">
-        <?php if (isset($_SESSION['error'])): ?>
+    <form class = "login-part" action = "login_process.php" method="post">
+        <!-- <?php if (isset($_SESSION['error'])): ?>
             <div class="error-msg"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
-        <?php endif; ?>
+        <?php endif; ?> -->
         <div class = "element">
             <div class = "m-b"></div>
             <b><div class = "welcome">Welcome !</div></b>

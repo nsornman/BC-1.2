@@ -124,8 +124,17 @@ body{
     margin-left: 1.5vw;
     font-family: "Anuphan", serif;
 }
-.type input{
-    width: 16.45vw;
+.type .choose{
+    border: none; 
+    outline : none; 
+    font-family: "Anuphan",serif; 
+    background-color: #F1F6FF; 
+    height:2vw; 
+    width:16.8vw; 
+    padding : 0.1vw 0; 
+    font-size: 1vw; 
+    border-radius: 0.2vw;
+    
 }
 .to-info textarea{
     width: 20.35vw;
