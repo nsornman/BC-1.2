@@ -32,7 +32,7 @@
             <a href="contact.html"><i class="fa-solid fa-phone" style="color: #ffffff;"></i></a>
         </div>
     </nav>
-    <form action="report_db.php" class = "box-bg" id = "box-bg" method="post">
+    <form action="report_db.php" class = "box-bg" id = "box-bg" method="post" enctype="multipart/form-data">
         <button id="toggleButton" class = "toggle-Button"></button>
         <div class = "top">
             <p class = "topic">Place</p>
@@ -63,7 +63,7 @@
                 <div class = "more-info">คำอธิบาย</div>
                 <textarea id="autoExpand" placeholder="กรุณาอธิบายเพิ่มเติม . . ." name = "description"></textarea> 
             </div>             
-            <input type="file" id="file" name = "img" class="file" accept="image/*" multiple >
+            <input type="file" id="file" name = "file[]" class="file" accept="image/*" multiple >
             <label for="file" class="custom-file-upload">Upload image( Max 4 Img )</label>
             <div class="file-list" id="file-list"></div>
             <script src="../JS/report.js"></script>
