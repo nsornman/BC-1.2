@@ -60,7 +60,7 @@ if (!empty($_FILES['file']['name'][0])) {
         }
     }
 } else {
-    echo "<script>alert('⚠️ ไม่ได้เลือกไฟล์ใด ๆ สำหรับอัปโหลด');  window.location.href = '../Report_system/report.php';</script>";
+    // echo "<script>alert('⚠️ ไม่ได้เลือกไฟล์ใด ๆ สำหรับอัปโหลด');  window.location.href = '../Report_system/report.php';</script>";
     // header ("Location: ../Report_system/report.php");
 }
 

@@ -24,7 +24,7 @@
                 <a href="../Report_system/report.php">Report</a>
             </li>
             <li class="contact">
-                <a href="contact.html">Contact</a>
+                <a href="HTML/contact.html">Contact</a>
             </li>
         </ul>
     </nav>

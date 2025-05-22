@@ -49,8 +49,8 @@ function addFileToList(fileName, file) {
         reader.onload = function (e) {
             const image = new Image();
             image.src = e.target.result;
-            image.style.maxWidth = "300px";  // กำหนดขนาดสูงสุดของตัวอย่างภาพ
-            image.style.maxHeight = "300px";
+            image.style.maxWidth = "100%";  // กำหนดขนาดสูงสุดของตัวอย่างภาพ
+            image.style.maxHeight = "100%"; // กำหนดขนาดสูงสุดของตัวอย่างภาพ
             const previewWindow = window.open("", "_blank");
             previewWindow.document.write(`<img src="${image.src}" alt="${fileName}">`);
         };
