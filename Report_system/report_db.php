@@ -29,7 +29,8 @@ if (!is_dir($targetDir)) {
     mkdir($targetDir, 0777, true); // สร้างโฟลเดอร์ถ้ายังไม่มี
 }
 $maxFileSize = 15 * 1024 * 1024;//15 MB
-
+$allowedExtensions = ['jpg', 'jpeg', 'png', 'heic', 'gif'];
+$notallowedExtensions = ['php', 'html', 'js', 'css', 'exe', 'bat', 'sh']; // นามสกุลที่ไม่อนุญาต
 $uploadedFiles = [];
 
 if (!empty($_FILES['file']['name'][0])) {
@@ -41,6 +42,17 @@ if (!empty($_FILES['file']['name'][0])) {
 
     for ($i = 0; $i < $fileCount; $i++) {
         $fileExt = pathinfo($_FILES['file']['name'][$i], PATHINFO_EXTENSION); // ดึงนามสกุลไฟล์
+        
+        if (!in_array($fileExt, $allowedExtensions)) {
+            echo "<script>alert('จะ shell หรอจ๊ะ'); window.location.href = '../Report_system/report.php';</script>";
+            // echo "<script>alert('❌ ไฟล์ ". $_FILES['file']['name'][$i] ." ไม่ใช่รูปภาพที่อนุญาต (jpg, png, heic, gif)');</script>";
+            exit();
+        }
+        // if (in_array($fileExt, $notallowedExtensions)) {
+        //     echo "<script>alert('จะ shell หรอจ๊ะ'); window.location.href = '../Report_system/report.php';</script>";
+        //     exit();
+        // }
+
         $newFileName = $case_id . '-' . ($i + 1) . '.' . $fileExt; // ตั้งชื่อใหม่แบบ case_id-ลำดับ
         $img = $targetDir . $newFileName;
 
