@@ -1,0 +1,183 @@
+/* :root {
+    --pending-color: #BE5959;
+    --inprogress-color: #DEB364;
+    --text-color: #000000;
+    --font-family: 'Poppins', sans-serif;
+} */
+body{
+    background-color: rgb(164, 164, 164);
+}
+/* ------------------------------Nav Bar--------------------------------------- */
+.navbar{
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.5vh;
+    color: #fff;
+    background-color: #162844;
+    width: 100%;
+    height: 7vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+.navbar .logo-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1vw;
+}
+.navbar .logo{
+    width: 4vh;
+    height: 5.5vh;
+    padding-top: 0vw;
+}
+.navbar .school_name{
+    margin-right: -10vw;
+    margin-left: 1vw;
+}
+.navbar .container{
+    display: flex;
+    margin-left: 40vw;
+}
+.navbar li{
+    display: flex;
+    padding: 0 3vw 0 2vw;
+    align-items: center;
+}
+.navbar a{
+    /* display: flex; */
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    padding: 0 2vw;
+    /* justify-content: space-between; */
+}
+.navbar .icon-container{
+    display: none;
+}
+.navbar a::before{
+    content: "";
+    position: absolute;
+    background-color: #ffffff;
+    height: 0.2vw;
+    width: 0%;
+    left: 0;
+    bottom: -0.85vw;
+    transition: all 0.5s ease-in-out;
+}
+.navbar a:hover:before{
+    width: 100%;
+}
+/* ---------------------report-box--------------------------- */
+table{
+    height: 45vw;
+    width: 35vw;
+    background-color: #fff;
+    position: relative;
+    font-size: 1.4vw;
+    border-radius: 1vw;
+    margin-top: 4.5vw;
+    margin-left: 1.5vw;
+    overflow-y: auto;
+    max-height: 600px; /* ปรับตามต้องการ */
+    font-family: "Anuphan", serif;
+    
+}
+table td:first-child{
+    padding-left: 0.8vw;
+    text-align: left;
+    width: 32%;
+}
+table table td:nth-child(2),table td:nth-child(3) {
+    text-align: center;
+    padding-left: 0.8vw;
+    width: 33%;
+}
+thead{
+    font-size: 1.4vw;
+    font-family: "Poppins", serif;
+    align-items: center;
+}
+thead th{
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    border-bottom:0.2vw solid #162844 ;
+}
+thead th:nth-child(3){
+    padding-right: 1vw;
+}
+
+tbody td:nth-child(3){
+    padding-right: 1.7vw;
+    justify-content: center;
+}
+
+td{
+    text-align: center;
+    font-size: 1.2vw; 
+    padding: 1vw;
+}
+tbody td:nth-child(3){
+    display: flex;  
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5vw;
+    transform: translateX(20%);
+    border-radius: 2vw;
+    width: 5.5vw;
+    padding: 0.3vw 2vw 0.3vw 2vw;
+    color: #ffffff;
+}
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    line-height: 0; 
+    outline: none;
+    color: #ffffff;
+    
+}
+.case-detail {
+    background-color: #fff;
+    border: none;
+    padding: 1vw;
+    border-radius: 1vw;
+    width: 30vw;
+    font-size: 14px;
+    position: absolute;
+    top: -50%;
+    left: 10%;
+}
+.case-detail .header {
+    font-size: 1.3vw;
+    font-weight: bold;
+    margin-bottom: 1vw;
+    color: #162844;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1vw;
+    
+}
+.case-detail .line{
+    
+    border-bottom: 0.15vw solid #162844;
+    
+}
+.status-pending {
+    background-color: rgba(190, 89, 89, 0.7);
+    border: 0.15vw solid rgba(190, 89, 89,1) ;
+}
+
+.status-inprogress {
+    background-color: rgba(222, 179, 100, 0.7);
+    border: 0.15vw solid rgba(222, 179, 100, 1);
+}
+
+.status-done {
+    background-color: rgba(107, 174, 121, 0.7);
+    border: 0.15vw solid rgba(107, 174, 121, 1);
+}

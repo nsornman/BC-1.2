@@ -59,18 +59,23 @@ body{
     background-color: #000;
     margin: 0.7vw 0;
 }
-.login-part input{
+.fill input{
     background-color: #F1F6FF;
-    border: none;
     margin: 0.5vw 0;
     padding: 0.6vw;
     border-radius: 0.2vw;
+    border: none ;
     display: block;   
     width: 15vw;
     height: 1vw;
     font-size: 1vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    outline: none;
+    border-bottom: 0.2vw solid rgb(61, 102, 167);
+}
+.fill input:focus{
+    border: 0.15vw solid rgb(61, 102, 167);
+    outline: 0.16vw solid rgba(61, 102, 167, 0.5);
+
 }
 .login-part .m-b{
     display: none;
@@ -157,6 +162,7 @@ body{
         font-size: 15px;
         border-radius: 0.4vh;
         padding: 0.6vh;
+        outline: rgba(22, 40, 68, 1);
     }
     .login-part .student-id{
         font-size: 20px;

@@ -31,13 +31,17 @@
             <div class = "fill">
                 <div class = "student-id">
                     <label for="std_id">Student Id</label>
-                    <input type="number" name = "std_id" placeholder="Don't add @bodin.ac.th" required>
+                    <input type="number" name = "std_id" placeholder="Don't add @bodin.ac.th" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                 </div>
                 <div class = "password">
                     <label for="pass">Password</label>
                     <input type="password" id="password" name="password" required>
                     <i id = "eyepassword" class="fa-solid fa-eye password-icon" style="color: #3a5f9c;"></i>
                 </div>
+                <!-- <div class="recaptcha-wrapper">
+                    <div class = "g-recaptcha" data-sitekey="6LcObEkrAAAAAKYEK-KhS0BDJBkd-dwgaqEvSdGr" ></div>
+                </div> -->
+                <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
                 <div class ="but-log">
                     <!-- <a href="../PHP/home.php"><button type = "submit" name="login_user">Login <i class="fa-solid fa-caret-right fa-sm" style="color: #ffffff;"></i></button></a> -->
                     <button type = "submit" name="login_user">Login <i class="fa-solid fa-caret-right fa-sm" style="color: #ffffff;"></i></button>

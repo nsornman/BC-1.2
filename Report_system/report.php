@@ -40,15 +40,10 @@
             <div class = "top-info">
                 <div class = "place" >สถานที่ <input type="text" name = "place" required></div>
                 <div class="path2">
-                    <div class = "floor" >ชั้น <input type="number" name = "floor" id = "amount" min = "1" /></div>
-                    <div class= "room"  >ห้อง <input type="number" name = "room" id = "amount" min = "1" /></div>
+                    <div class = "floor" >ชั้น <input type="number" name = "floor" id = "floor" pattern="[1-4]" maxlength="1" /></div>
+                    <div class= "room"  >ห้อง <input type="text" name = "room" maxlength="4"/></div>
                     <script>
-                        // const input = document.getElementById('amount');
-                        // input.addEventListener('input', () => {
-                        //     if (input.value <= 0) {
-                        //     input.value = 1;
-                        //     }
-                        // });
+                        const floorInput = document.getElementById('floor');
                     </script>
                 </div>   
             </div>

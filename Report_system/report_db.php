@@ -1,5 +1,6 @@
 <?php 
-include_once '../Register_system/server.php'; // Include the server connection file
+include_once '../login_system/server.php'; // Include the server connection file
+// require_once '../for_hackker/5d2d3ceb7abe552344276d47d36a8175b7aeb250a9bf0bf00e850cd23ecf2e43.php'; // Include the database connection file
 // include_once '../Register_system/login.php'; // Include the session file
 session_start();
 // if (!isset($_SESSION['student_id'])) {
@@ -21,6 +22,17 @@ $problem_type = $_POST['problem_type'];
 $description = $_POST['description'];
  
 // $std_id = $_SESSION['student_id'];
+if (!ctype_digit($floor) || strlen($floor) !== 1) {
+        // $_SESSION['error'] = 'ชั้นต้องเป็นตัวเลข 1 หลัก';
+        echo "<script>alert('ชั้นต้องเป็นตัวเลข 1 หลัก'); window.location.href = '../Report_system/report.php';</script>";
+        exit();
+}
+if (!empty($room)){
+    if (!ctype_digit($room) || strlen($room) !== 4) {
+        echo "<script>alert('เลขห้องต้องมี 4 ตัว'); window.location.href = '../Report_system/report.php';</script>";
+        exit();
+    }
+}
 
 $dir = "Report_pic/";
 $year_month = date("Y-m");
@@ -44,14 +56,10 @@ if (!empty($_FILES['file']['name'][0])) {
         $fileExt = pathinfo($_FILES['file']['name'][$i], PATHINFO_EXTENSION); // ดึงนามสกุลไฟล์
         
         if (!in_array($fileExt, $allowedExtensions)) {
-            echo "<script>alert('จะ shell หรอจ๊ะ'); window.location.href = '../Report_system/report.php';</script>";
-            // echo "<script>alert('❌ ไฟล์ ". $_FILES['file']['name'][$i] ." ไม่ใช่รูปภาพที่อนุญาต (jpg, png, heic, gif)');</script>";
+            echo "<script>alert('จะทำอะไรเอ่ย'); window.location.href = '../Report_system/report.php';</script>";
             exit();
         }
-        // if (in_array($fileExt, $notallowedExtensions)) {
-        //     echo "<script>alert('จะ shell หรอจ๊ะ'); window.location.href = '../Report_system/report.php';</script>";
-        //     exit();
-        // }
+        
 
         $newFileName = $case_id . '-' . ($i + 1) . '.' . $fileExt; // ตั้งชื่อใหม่แบบ case_id-ลำดับ
         $img = $targetDir . $newFileName;

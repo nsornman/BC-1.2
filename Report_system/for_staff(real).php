@@ -36,7 +36,7 @@
         <div class = "line"></div>
         <div class = "re-info">
             <div class = "case">
-                <p>มีขี้อยู่ในห้องน้ำ <i class="fa-solid fa-circle-info" style="color: #162844;"></i></p>
+                <p>มีขี้อยู่ในห้องน้ำ<td></td><i class="fa-solid fa-circle-info" style="color: #162844;"></i></p>
                 <div class = "btn">Inprogress</div>
             </div>
             <div class = "case">
@@ -48,6 +48,12 @@
                 <div class = "btn">Inprogress</div>
             </div>
         </div>
+        <!-- <thead>
+            <tr>
+                <th>List</th>
+                <th>Status</th>
+            </tr>
+        </thead> -->
     </div>
 </body>
 </html>

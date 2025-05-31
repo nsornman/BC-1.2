@@ -2,7 +2,7 @@
     // session_start();
     // if (!isset($_SESSION['username'])) {
     //     $_SESSION['msg'] = "Please login first.";
-    //     header("Location: ../Register_system/login.php");
+    //     header("Location: ../login_system/login.php");
     // }
 ?>
 <!DOCTYPE html>
