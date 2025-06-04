@@ -1,0 +1,248 @@
+html{
+    height: 100%;
+}
+body{
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    height: 100%;
+}
+/* ------------------------------Nav Bar--------------------------------------- */
+.navbar{
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.5vh;
+    color: #fff;
+    background-color: #162844;
+    width: 100%;
+    height: 7vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+.navbar .logo-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1vw;
+}
+.navbar .logo{
+    width: 4vh;
+    height: 5.5vh;
+    padding-top: 0vw;
+}
+.navbar .school_name{
+    margin-right: -10vw;
+    margin-left: 1vw;
+}
+.navbar .container{
+    display: flex;
+    margin-left: 40vw;
+}
+.navbar li{
+    display: flex;
+    padding: 0 3vw 0 2vw;
+    align-items: center;
+}
+.navbar a{
+    /* display: flex; */
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    padding: 0 2vw;
+    /* justify-content: space-between; */
+}
+.navbar .icon-container{
+    display: none;
+}
+.navbar a::before{
+    content: "";
+    position: absolute;
+    background-color: #ffffff;
+    height: 0.2vw;
+    width: 0%;
+    left: 0;
+    bottom: -0.85vw;
+    transition: all 0.5s ease-in-out;
+}
+.navbar a:hover:before{
+    width: 100%;
+}
+/* -------------------------------------------content-------------------------------------- */
+.box-bg{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2vw;
+    padding: 8.6vh 1.5vw 0 1.5vw;
+    height: 88vh;
+}
+.box-bg > div{   
+    padding: 0 1.5vw;
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    border-radius: 1.5vw;
+    box-shadow:  0 10px 20px rgba(0, 0, 0, 0.1),
+    0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+.box-bg .topic{
+    font-family: "Poppins", serif;
+    font-weight: bold;
+    font-size: 2vw;
+    margin: 1.2vw 0 0.8vw 0;
+}
+.box-bg .line{
+    width: 100%;
+    height: 0.2vw;
+    background-color: #162844;
+    margin-bottom: 1.2vw;
+}
+/* -------------------------place------------------------- */
+.topic-1 .top-info,.path2{
+    font-family: "Anuphan", serif;
+    font-size: 1.3vw;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.8vw;
+}
+.top-info input{
+    height: 1.5vw;
+    font-size: 1.3vw;
+}
+.place input{
+    width: 84%;
+}
+.floor input{
+    width: 91.9%;
+}
+/* -------------------------problem------------------------- */
+/* -------------------------Btn--------------------------- */
+.button2 {
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    color: #090909;
+    padding: 0vw 1.5vw;
+    cursor: pointer;
+    font-size: 1.2vw;
+    border-radius: 10vw;
+    background: #e8e8e8;
+    border: 0.1vw solid #e8e8e8;
+    /* box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff; */
+    width: 21vw;
+    height: 3vw;
+    outline: none;
+    bottom: 1vw;
+    left: 1.2vw;
+    font-family: "Poppins", serif;
+    font-weight: bold;
+  }
+  
+  .button2:active {
+    color: #666;
+    /* box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff; */
+  }
+  
+  .button2:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+  
+  .button2:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #162844;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+  
+  .button2:hover {
+    color: #ffffff;
+    border: 0.1vw solid #162844; /* สีขอบ*/
+  }
+  
+  .button2:hover:before {
+    top: -35%;
+    background-color: #4771b5;  /* ด้านล่าง*/
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+  
+  .button2:hover:after {
+    top: -45%;
+    background-color: #162844; /* สีตอนจบ*/
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+
+.file {
+    display: none;
+}
+.custom-file-upload {
+    display: inline-block;
+    padding: 0.7vw 2vw;
+    cursor: pointer;
+    background-color: #2f4c7a;
+    color: white;
+    border-radius: 0.2vw;
+    width: 16.5vw ;
+    margin: 1vw 0 0 0vw;
+    font-family: "Poppins", serif;
+}
+.file-list {
+    margin-top: 1vw;
+    display: grid;
+    grid-template-columns: 10vw 10vw;
+    gap: 0.5vw;
+}
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5vw;
+    border: 0.15vw solid #ddd;
+    border-radius: 0.3vw;
+    background-color: #f9f9f9;
+    max-width: 10vw;
+}
+.file-name {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+    flex-grow: 1; /* ให้ชื่อไฟล์ขยายตัวตามพื้นที่ */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cancel-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 1vw;
+    flex-shrink: 0;
+    margin-left: 1vw; /* ค่าตั้งต้น */
+}   
+.custom-file-upload:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+.custom-file-upload:active {
+    transform: scale(0.9);
+}
+

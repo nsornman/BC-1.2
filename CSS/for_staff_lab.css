@@ -141,32 +141,47 @@ tbody td:nth-child(3){
     color: #ffffff;
     
 }
+
 .case-detail {
     background-color: #fff;
     border: none;
     padding: 1vw;
     border-radius: 1vw;
-    width: 30vw;
+    width: 25vw;
     font-size: 14px;
     position: absolute;
-    top: -50%;
+    top: 0;
     left: 10%;
 }
+
 .case-detail .header {
     font-size: 1.3vw;
     font-weight: bold;
     margin-bottom: 1vw;
-    color: #162844;
+    color: #000000;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    /* gap: 1vw; */
+}
+.case-detail .case-title{
+    display: flex;
+    justify-self: start;
     gap: 1vw;
-    
 }
 .case-detail .line{
-    
     border-bottom: 0.15vw solid #162844;
-    
 }
+.case-detail .case-detail-content {
+    font-size: 1.2vw;
+    margin: 1vw 0;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start ;
+}
+.case-detail-content > div {
+  margin-bottom: 0.5vw;
+}
+
 .status-pending {
     background-color: rgba(190, 89, 89, 0.7);
     border: 0.15vw solid rgba(190, 89, 89,1) ;
