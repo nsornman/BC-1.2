@@ -45,6 +45,8 @@
                     <script>
                         const floorInput = document.getElementById('floor');
                     </script>
+                    <div class="divider">or</div>
+                    <div class = "explane">อธิบายสถานที่อย่างละเอียด<textarea name="explane" id="explane"></textarea></div>
                 </div>   
             </div>
         </div>
@@ -69,6 +71,7 @@
             <input type="file" id="file" name = "file[]" class="file" accept="image/*" multiple >
             <label for="file" class="custom-file-upload">Upload image( Max 4 Img )</label>
             <div class="file-list" id="file-list"></div>
+            
             <script src="../JS/report.js"></script>
             <script src="../JS/slide.js"></script>
             <div class = "root">    

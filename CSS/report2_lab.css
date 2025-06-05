@@ -1,3 +1,10 @@
+:root{
+    --font-thai: 'Anuphan', serif;
+    --font-english: 'Poppins', serif;
+    --focus:rgb(61, 102, 167);
+    --color-1:#2f4c7a;
+    --input-bg: #F1F6FF;
+}
 html{
     height: 100%;
 }
@@ -89,24 +96,36 @@ body{
     font-weight: bold;
     font-size: 2vw;
     margin: 1.2vw 0 0.8vw 0;
+    color: #2f4c7a;
 }
 .box-bg .line{
     width: 100%;
     height: 0.2vw;
-    background-color: #162844;
+    background-color: var(--color-1);
     margin-bottom: 1.2vw;
 }
 /* -------------------------place------------------------- */
+.topic-1{
+    height: 80%;
+}
 .topic-1 .top-info,.path2{
-    font-family: "Anuphan", serif;
+    font-family: var(--font-thai);
     font-size: 1.3vw;
     display: flex;
     flex-direction: column;
     row-gap: 0.8vw;
 }
-.top-info input{
-    height: 1.5vw;
+.top-info textarea,input{
+    height: 1.8vw;
+    font-family: "Anuphan", serif;
     font-size: 1.3vw;
+    background-color: #F1F6FF;
+    border-radius: 0.3vw;
+    outline: none;
+    border: none;
+}
+.top-info input:focus{
+    border: 0.15vw solid rgb(61, 102, 167);
 }
 .place input{
     width: 84%;
@@ -114,7 +133,67 @@ body{
 .floor input{
     width: 91.9%;
 }
+.room input{
+    width: 89.4%;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #5279a3; 
+    margin: 1vw 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 0.1vw solid #5279a3;
+}
+
+.divider:not(:empty)::before {
+    margin-right: .75vw;
+}
+
+.divider:not(:empty)::after {
+    margin-left: .75vw;
+}
+.explane textarea{
+    margin-top: 1vw;
+    width: 100%;
+    height: 11vw;   
+    outline: none;
+    border: none;
+    resize: none;
+}
+.explane textarea:focus{
+    border: 0.15vw solid rgb(61, 102, 167);
+}
 /* -------------------------problem------------------------- */
+.type, .type > .choose, .more-info, textarea{
+    font-family: var(--font-thai);
+    font-size: 1.3vw;
+    margin-bottom: 1vw;
+}
+.choose, textarea{       
+    background-color: var(--input-bg);
+    border-radius: 0.3vw;
+    outline: none;
+    border: none;
+    
+}
+.choose:focus, textarea:focus{
+    border: 0.15vw solid rgb(61, 102, 167);
+}
+.choose{
+    width: 92.9%;
+    height: 1.8vw;
+}
+textarea{
+    width: 100%;
+    height: 11vw;
+    resize: none;
+}
 /* -------------------------Btn--------------------------- */
 .button2 {
     display: inline-block;
