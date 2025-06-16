@@ -47,6 +47,13 @@
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $infoId = "info_" . htmlspecialchars($row['case_id']);  
+                        $imageHtml = ''; 
+                        if (!isset($row['img']) || empty($row['img'])) {
+                            $imageHtml = '<p>ไม่มีรูปภาพ</p>';
+                        } else {
+                            $imageHtml = '<p>รูปภาพ :</p>' .
+                                        '<img src="' . htmlspecialchars($row['img']) . '" alt="Problem Image" style="max-width: 300px; border-radius: 8px;">';
+                        }
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($row['place']) . "</td>";
                         echo "<td>" . substr($row['report_date'], 0, 10) . "</td>";
@@ -69,7 +76,7 @@
                                         <div class = "case-id">  รหัสเคส :  '. htmlspecialchars($row['case_id']) . '</div>
                                         <div class = "problem-type">ประเภทปัญหา : ' . htmlspecialchars($row['problem_type']) . '</div>
                                         <div class = "description">รายละเอียดปัญหา : '. htmlspecialchars($row['description']) . '</div>
-                                        <div class = "img"><img src="' . htmlspecialchars($row['img']) . '" alt="Image" style="max-width: 300px;"></div>
+                                        <div class = "img">' . $imageHtml . '</div>
                                     </div>  
                                 </div>   
                             </div>

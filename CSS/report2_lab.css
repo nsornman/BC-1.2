@@ -106,7 +106,7 @@ body{
 }
 /* -------------------------place------------------------- */
 .topic-1{
-    height: 80%;
+    height: 100%;
 }
 .topic-1 .top-info,.path2{
     font-family: var(--font-thai);
@@ -128,13 +128,13 @@ body{
     border: 0.15vw solid rgb(61, 102, 167);
 }
 .place input{
-    width: 84%;
+    width: 83%;
 }
 .floor input{
-    width: 91.9%;
+    width: 91%;
 }
 .room input{
-    width: 89.4%;
+    width: 88.8%;
 }
 .divider {
     display: flex;
@@ -173,7 +173,7 @@ body{
 .type, .type > .choose, .more-info, textarea{
     font-family: var(--font-thai);
     font-size: 1.3vw;
-    margin-bottom: 1vw;
+    margin-bottom: 0.5vw;
 }
 .choose, textarea{       
     background-color: var(--input-bg);
@@ -195,6 +195,12 @@ textarea{
     resize: none;
 }
 /* -------------------------Btn--------------------------- */
+.root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vw;
+}
 .button2 {
     display: inline-block;
     transition: all 0.2s ease-in;
@@ -212,8 +218,6 @@ textarea{
     width: 21vw;
     height: 3vw;
     outline: none;
-    bottom: 1vw;
-    left: 1.2vw;
     font-family: "Poppins", serif;
     font-weight: bold;
   }
@@ -270,7 +274,7 @@ textarea{
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 
-.file {
+/* .file {
     display: none;
 }
 .custom-file-upload {
@@ -302,9 +306,9 @@ textarea{
 .file-name {
     color: rgb(0, 0, 0);
     text-decoration: none;
-    cursor: pointer;
-    flex-grow: 1; /* ให้ชื่อไฟล์ขยายตัวตามพื้นที่ */
-    white-space: nowrap;
+    cursor: pointer; */
+    /* flex-grow: 1; ให้ชื่อไฟล์ขยายตัวตามพื้นที่ */
+    /* white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -316,12 +320,120 @@ textarea{
     font-size: 1vw;
     flex-shrink: 0;
     margin-left: 1vw; /* ค่าตั้งต้น */
-}   
+/* }   
 .custom-file-upload:hover {
     transform: scale(1.1);
     transition: 0.2s;
 }
 .custom-file-upload:active {
     transform: scale(0.9);
+} */ 
+
+
+.custum-file-upload {
+    display: flex;
+    height: 16vw;
+    width: 61vw;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 1vw;
+    cursor: pointer;
+    justify-content: center;
+    border: 0.15vw dashed #cacaca;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 0.3vw;
+    position: relative;
+    transition: all 0.3s ease;
+
 }
 
+.custum-file-upload .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .icon i {
+  font-size: 5vw;
+  /* fill: rgba(75, 85, 99, 1); */
+}
+
+.custum-file-upload .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-english);
+  font-size: 1.3vw;
+}
+
+.custum-file-upload .text span {
+  font-weight: 400;
+  color: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload .icon,
+.custum-file-upload .text {
+    transition: opacity 0.3s ease;
+}
+.custum-file-upload input {
+  display: none;
+}
+
+.custum-file-upload.hide-placeholder .icon,
+.custum-file-upload.hide-placeholder .text {
+    display: none;
+}
+
+.preview-list {
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr); */
+   
+    grid-template-columns: repeat(4, minmax(12vw, 1fr));
+    max-width: 60vw;
+    gap: 0.8vw;
+    margin-top: 1vw;
+    width: 100%;
+    z-index: 100;
+    padding: 0 0.5vw;
+}
+
+.preview-item {
+    position: relative;
+}
+
+.preview-item img {
+    width: 100%;
+    height: 13vw;
+    object-fit: cover;
+    border-radius: 0.5vw;
+}
+
+.preview-item .info {
+    font-size: 1vw;
+    text-align: center;
+    margin-top: 0.2vw;
+    word-break: break-word;
+    font-family: var(--font-english);
+}
+
+.remove-btn {
+    position: absolute;
+    top: -0.7vw;
+    right: -0.78vw;
+    background: #fff;
+    border: 0.1vw solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+}
+
+.remove-btn:hover {
+    background: red;
+    color: white;
+}

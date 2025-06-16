@@ -1,5 +1,5 @@
 const fileInput = document.getElementById("file");
-const fileList = document.getElementById("file-list");
+const fileList = document.getElementById("file-list") || document.getElementById("previewList");
 
 function trimFileName(name, length = 15) {
     return name.length > length ? name.substring(0, length) + "..." : name;
@@ -10,49 +10,40 @@ function adjustCancelButtonSpacing(fileNameElement, cancelButton) {
     cancelButton.style.marginLeft = fileNameLength > 10 ? "8px" : "3px"; 
 }
 
-function saveFilesToLocalStorage() {
-    const files = [];
-    document.querySelectorAll(".file-item").forEach(item => {
-        files.push(item.getAttribute("data-file-name"));
-    });
-    localStorage.setItem("uploadedFiles", JSON.stringify(files));
-}
-
-function loadFilesFromLocalStorage() {
-    const savedFiles = JSON.parse(localStorage.getItem("uploadedFiles")) || [];
-    savedFiles.forEach(fileName => addFileToList(fileName));
-}
-
-function addFileToList(fileName, file) {
+function addFileToList(file, index) {
     if (fileList.children.length >= 4) return;
 
     const fileItem = document.createElement("div");
     fileItem.classList.add("file-item");
-    fileItem.setAttribute("data-file-name", fileName);
+    fileItem.setAttribute("data-file-name", file.name);
 
     const fileNameSpan = document.createElement("span");
     fileNameSpan.classList.add("file-name");
-    fileNameSpan.textContent = trimFileName(fileName);
-    fileNameSpan.title = fileName; // แสดงชื่อเต็มเมื่อโฮเวอร์
+    fileNameSpan.textContent = trimFileName(file.name);
+    fileNameSpan.title = file.name;
 
     const cancelButton = document.createElement("button");
     cancelButton.classList.add("cancel-btn");
     cancelButton.textContent = "✖";
     cancelButton.onclick = function () {
         fileList.removeChild(fileItem);
-        saveFilesToLocalStorage(); // อัปเดต localStorage
+        // Remove file from input by creating a new FileList
+        const dt = new DataTransfer();
+        Array.from(fileInput.files).forEach((f, i) => {
+            if (i !== index) dt.items.add(f);
+        });
+        fileInput.files = dt.files;
     };
 
-    // คลิกที่ชื่อไฟล์เพื่อแสดงภาพตัวอย่าง
     fileNameSpan.onclick = function () {
         const reader = new FileReader();
         reader.onload = function (e) {
             const image = new Image();
             image.src = e.target.result;
-            image.style.maxWidth = "100%";  // กำหนดขนาดสูงสุดของตัวอย่างภาพ
-            image.style.maxHeight = "100%"; // กำหนดขนาดสูงสุดของตัวอย่างภาพ
+            image.style.maxWidth = "100%";
+            image.style.maxHeight = "100%";
             const previewWindow = window.open("", "_blank");
-            previewWindow.document.write(`<img src="${image.src}" alt="${fileName}">`);
+            previewWindow.document.write(`<img src="${image.src}" alt="${file.name}">`);
         };
         reader.readAsDataURL(file);
     };
@@ -62,64 +53,17 @@ function addFileToList(fileName, file) {
     fileList.appendChild(fileItem);
 
     adjustCancelButtonSpacing(fileNameSpan, cancelButton);
-    saveFilesToLocalStorage();
 }
 
 fileInput.addEventListener("change", function () {
-    if (fileList.children.length >= 3) {
+    const files = Array.from(fileInput.files);
+    fileList.innerHTML = ""; // เคลียร์ก่อนเพื่อป้องกันซ้ำ
+    if (files.length > 4) {
         alert("You can only upload up to 4 images.");
         fileInput.value = "";
         return;
     }
-
-    if (fileInput.files.length > 0) {
-        Array.from(fileInput.files).forEach(file => {
-            addFileToList(file.name, file); // ส่งไฟล์ไปให้ฟังก์ชัน addFileToList
-        });
-    }
+    files.forEach((file, index) => {
+        addFileToList(file, index);
+    });
 });
-
-// บันทึกค่า Input ทุกตัว
-// function saveFormData() {
-//     const inputs = document.querySelectorAll("input, textarea, select");
-//     const formData = {};
-//     inputs.forEach(input => {
-//         if (input.type === "file") return; // ข้าม input file
-//         formData[input.id || input.name] = input.value;
-//     });
-//     localStorage.setItem("formData", JSON.stringify(formData));
-
-//     inputs.forEach((input, index) => {
-//         if (input.type === "file") return; // ข้าม input file
-    
-//         const key = input.id || input.name || `input-${index}`;
-    
-//         if (savedData[key] !== undefined) {
-//             if (input.type === "checkbox" || input.type === "radio") {
-//                 input.checked = savedData[key];
-//             } else {
-//                 input.value = savedData[key];
-//             }
-//         }
-//     });
-// }
-
-// function loadFormData() {
-//     const savedData = JSON.parse(localStorage.getItem("formData")) || {};
-//     const inputs = document.querySelectorAll("input, textarea, select");
-//     inputs.forEach(input => {
-//         if (input.type === "file") return; // ข้าม input file
-//         if (savedData[input.id || input.name] !== undefined) {
-//             input.value = savedData[input.id || input.name];
-//         }
-//     });
-// }
-
-// โหลดข้อมูลทั้งหมดเมื่อหน้าเว็บโหลด
-// document.addEventListener("DOMContentLoaded", () => {
-//     loadFilesFromLocalStorage();
-//     loadFormData();
-// });
-
-// // บันทึกข้อมูลเมื่อ input เปลี่ยนแปลง
-// document.addEventListener("input", saveFormData);

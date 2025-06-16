@@ -6,7 +6,7 @@
     <title>Report</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/report2_lab.css">  
 </head>
 <body>
@@ -32,8 +32,7 @@
             <a href="contact.html"><i class="fa-solid fa-phone" style="color: #ffffff;"></i></a>
         </div>
     </nav>
-    <form action="report_db.php" class = "box-bg" id = "box-bg" method="post" enctype="multipart/form-data">
-        <!-- <button id="toggleButton" class = "toggle-Button"></button> -->
+    <form action="report_db_lab.php" class = "box-bg" id = "box-bg" method="post" enctype="multipart/form-data">
         <div class = "topic-1">
             <p class = "topic">Place</p>
             <div class = "line"></div>
@@ -45,9 +44,10 @@
                     <script>
                         const floorInput = document.getElementById('floor');
                     </script>
-                    <div class="divider">or</div>
-                    <div class = "explane">อธิบายสถานที่อย่างละเอียด<textarea name="explane" id="explane"></textarea></div>
-                </div>   
+                <div class="divider">or</div>
+                    
+                </div>
+                <div class = "explane">อธิบายสถานที่อย่างละเอียด<textarea name="explane" id="explane"></textarea></div>
             </div>
         </div>
         <div class = "topic-2">
@@ -68,12 +68,20 @@
                 <div class = "more-info">คำอธิบาย</div>
                 <textarea id="autoExpand" placeholder="กรุณาอธิบายเพิ่มเติม . . ." name = "description"></textarea> 
             </div>             
-            <input type="file" id="file" name = "file[]" class="file" accept="image/*" multiple >
+            <!-- <input type="file" id="file" name = "file[]" class="file" accept="image/*" multiple >
             <label for="file" class="custom-file-upload">Upload image( Max 4 Img )</label>
-            <div class="file-list" id="file-list"></div>
-            
-            <script src="../JS/report.js"></script>
-            <script src="../JS/slide.js"></script>
+            <div class="file-list" id="file-list"></div> -->
+            <label class="custum-file-upload" id="uploadBox">
+                <div class="icon">
+                    <i class="fa-solid fa-file-import"></i>                
+                </div>
+                <div class="text">
+                    <span>Click to upload image</span>
+                </div>
+                <input type="file" id="file" name = "file[]" class="file" accept="image/*" multiple>
+                <div class="preview-list" id="previewList"></div>
+            </label>
+            <script src="../JS/report_lab.js"></script>
             <div class = "root">    
                 <button type="submit" class="button2" name = "sub-inf">submit</button>
             </div> 

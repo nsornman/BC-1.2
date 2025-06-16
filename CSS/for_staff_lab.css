@@ -129,6 +129,7 @@ tbody td:nth-child(3){
     width: 5.5vw;
     padding: 0.3vw 2vw 0.3vw 2vw;
     color: #ffffff;
+    margin-top: 0.5vw;
 }
 .icon-button {
     background: none;
@@ -147,8 +148,8 @@ tbody td:nth-child(3){
     border: none;
     padding: 1vw;
     border-radius: 1vw;
-    width: 25vw;
-    font-size: 14px;
+    max-width: 35vw;
+    font-size: 1vw;
     position: absolute;
     top: 0;
     left: 10%;
