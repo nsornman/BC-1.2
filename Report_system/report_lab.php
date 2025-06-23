@@ -71,6 +71,7 @@
             <!-- <input type="file" id="file" name = "file[]" class="file" accept="image/*" multiple >
             <label for="file" class="custom-file-upload">Upload image( Max 4 Img )</label>
             <div class="file-list" id="file-list"></div> -->
+            <div class="preview-list" id="previewList"></div>
             <label class="custum-file-upload" id="uploadBox">
                 <div class="icon">
                     <i class="fa-solid fa-file-import"></i>                
@@ -79,8 +80,9 @@
                     <span>Click to upload image</span>
                 </div>
                 <input type="file" id="file" name = "file[]" class="file" accept="image/*" multiple>
-                <div class="preview-list" id="previewList"></div>
+                
             </label>
+            
             <script src="../JS/report_lab.js"></script>
             <div class = "root">    
                 <button type="submit" class="button2" name = "sub-inf">submit</button>

@@ -199,14 +199,14 @@ textarea{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5vw;
+    margin-top: 4vw;
 }
 .button2 {
     display: inline-block;
     transition: all 0.2s ease-in;
     position: absolute;
     overflow: hidden;
-    z-index: 1;
+    z-index: 101;
     color: #090909;
     padding: 0vw 1.5vw;
     cursor: pointer;
@@ -214,7 +214,7 @@ textarea{
     border-radius: 10vw;
     background: #e8e8e8;
     border: 0.1vw solid #e8e8e8;
-    /* box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff; */
+    
     width: 21vw;
     height: 3vw;
     outline: none;
@@ -224,7 +224,6 @@ textarea{
   
   .button2:active {
     color: #666;
-    /* box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff; */
   }
   
   .button2:before {
@@ -274,65 +273,10 @@ textarea{
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 
-/* .file {
-    display: none;
-}
-.custom-file-upload {
-    display: inline-block;
-    padding: 0.7vw 2vw;
-    cursor: pointer;
-    background-color: #2f4c7a;
-    color: white;
-    border-radius: 0.2vw;
-    width: 16.5vw ;
-    margin: 1vw 0 0 0vw;
-    font-family: "Poppins", serif;
-}
-.file-list {
-    margin-top: 1vw;
-    display: grid;
-    grid-template-columns: 10vw 10vw;
-    gap: 0.5vw;
-}
-.file-item {
-    display: flex;
-    align-items: center;
-    padding: 0.5vw;
-    border: 0.15vw solid #ddd;
-    border-radius: 0.3vw;
-    background-color: #f9f9f9;
-    max-width: 10vw;
-}
-.file-name {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    cursor: pointer; */
-    /* flex-grow: 1; ให้ชื่อไฟล์ขยายตัวตามพื้นที่ */
-    /* white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.cancel-btn {
-    background: none;
-    border: none;
-    color: red;
-    cursor: pointer;
-    font-size: 1vw;
-    flex-shrink: 0;
-    margin-left: 1vw; /* ค่าตั้งต้น */
-/* }   
-.custom-file-upload:hover {
-    transform: scale(1.1);
-    transition: 0.2s;
-}
-.custom-file-upload:active {
-    transform: scale(0.9);
-} */ 
-
 
 .custum-file-upload {
     display: flex;
-    height: 16vw;
+    height: 16.5vw;
     width: 61vw;
     flex-direction: column;
     align-items: space-between;
@@ -371,52 +315,54 @@ textarea{
   color: rgba(75, 85, 99, 1);
 }
 
-.custum-file-upload .icon,
+/* .custum-file-upload .icon,
 .custum-file-upload .text {
     transition: opacity 0.3s ease;
-}
+} */
 .custum-file-upload input {
   display: none;
 }
 
-.custum-file-upload.hide-placeholder .icon,
+/* .custum-file-upload.hide-placeholder .icon,
 .custum-file-upload.hide-placeholder .text {
     display: none;
-}
+} */
 
 .preview-list {
+    position: absolute;
     display: grid;
-    /* grid-template-columns: repeat(4, 1fr); */
-   
     grid-template-columns: repeat(4, minmax(12vw, 1fr));
     max-width: 60vw;
-    gap: 0.8vw;
-    margin-top: 1vw;
-    width: 100%;
+    gap: 0.8vw; 
+    /* width: 100%; */
     z-index: 100;
     padding: 0 0.5vw;
+    text-align: center;
 }
 
-.preview-item {
+
+.file-item {
     position: relative;
+    margin-top: 1vw;
+    
+    
 }
 
-.preview-item img {
+.file-item img {
     width: 100%;
     height: 13vw;
     object-fit: cover;
     border-radius: 0.5vw;
 }
 
-.preview-item .info {
+.file-item .file-name {
     font-size: 1vw;
-    text-align: center;
     margin-top: 0.2vw;
     word-break: break-word;
     font-family: var(--font-english);
 }
 
-.remove-btn {
+.cancel-btn {
     position: absolute;
     top: -0.7vw;
     right: -0.78vw;
@@ -424,7 +370,7 @@ textarea{
     border: 0.1vw solid #ccc;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.2vw;
+    font-size: 1vw;
     width: 1.5vw;
     height: 1.5vw;
     display: flex;
@@ -433,7 +379,30 @@ textarea{
     color: #555;
 }
 
-.remove-btn:hover {
+.cancel-btn:hover {
     background: red;
     color: white;
+}
+@media screen and (max-width: 768px) {
+    .navbar li{
+        padding: 0 1vw;
+    }
+    .navbar .container{
+        margin-left: 20vw;
+    }
+    .navbar .logo-info{
+        margin-left: 0.5vw;
+    }
+    .navbar .logo{
+        width: 3vh;
+        height: 4.5vh;
+    }
+    .box-bg{
+        grid-template-columns: 1fr;
+        padding: 8.6vh 1vw 0 1vw;
+    }
+    .box-bg > div{
+        padding: 0 1vw;
+    }
+    
 }
