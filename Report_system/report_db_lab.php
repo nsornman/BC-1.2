@@ -45,7 +45,6 @@ if (!is_dir($targetDir)) {
 }
 $maxFileSize = 15 * 1024 * 1024;//15 MB
 $allowedExtensions = ['jpg', 'jpeg', 'png', 'heic', 'gif'];
-$notallowedExtensions = ['php', 'html', 'js', 'css', 'exe', 'bat', 'sh']; // นามสกุลที่ไม่อนุญาต
 $uploadedFiles = [];
 
 if (!empty($_FILES['file']['name'][0])) {

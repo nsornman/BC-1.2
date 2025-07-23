@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/report2_lab.css">  
+    <link rel="website icon" type="png" href="https://inf.bodin.ac.th/_resx/upload/img/brand/logo/color.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -27,8 +29,8 @@
             </li>
         </ul>
         <div class = "icon-container">
-            <a href="home.html"><i class="fa-solid fa-house home" style="color: #ffffff;"></i></a>
-            <a href="report.html"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></a>
+            <a href="../PHP/home.php"><i class="fa-solid fa-house home" style="color: #ffffff;"></i></a>
+            <a href="../Report_system/report.php"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></a>
             <a href="contact.html"><i class="fa-solid fa-phone" style="color: #ffffff;"></i></a>
         </div>
     </nav>
@@ -85,8 +87,10 @@
             
             <script src="../JS/report_lab.js"></script>
             <div class = "root">    
-                <button type="submit" class="button2" name = "sub-inf">submit</button>
-            </div> 
+                <button type="submit" class="button2" id = "button2" name = "sub-inf">submit</button>
+            </div>
+            
+
         </div> 
     </form>
 </body>

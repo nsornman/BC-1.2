@@ -273,7 +273,7 @@ textarea{
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 
-
+/* -------------------------Upload--------------------------- */
 .custum-file-upload {
     display: flex;
     height: 16.5vw;
@@ -344,8 +344,6 @@ textarea{
 .file-item {
     position: relative;
     margin-top: 1vw;
-    
-    
 }
 
 .file-item img {
@@ -384,25 +382,212 @@ textarea{
     color: white;
 }
 @media screen and (max-width: 768px) {
-    .navbar li{
-        padding: 0 1vw;
+    body{
+        overflow: auto;
+    }
+    .navbar .school_name{
+        display: none;
     }
     .navbar .container{
-        margin-left: 20vw;
+        display: none;
+        margin-left:  32vw;
     }
-    .navbar .logo-info{
-        margin-left: 0.5vw;
+    .navbar .icon-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: 53vw;
+        font-size: 4.5vw;
+        gap: 1.8vw;
     }
-    .navbar .logo{
-        width: 3vh;
-        height: 4.5vh;
-    }
+    /* -------------------------content------------------------- */
+
     .box-bg{
+        display: grid;
+        grid-template-columns: 1fr ;
+        gap: 7vw;
+        height: 88vh;
+    }
+    .box-bg > div{   
+        border-radius: 2vw;
+    }
+    .box-bg .topic{
+        font-size: 8vw;
+    }
+    .box-bg .line{
+        height: 0.6vw;
+        background-color: var(--color-1);
+        margin-bottom: 1.2vw;
+    }
+    /* -------------------------place------------------------- */
+
+    .topic-1 .top-info{
+        margin-top: 2vw;
+    }
+    .topic-1 .top-info,.path2{
+        font-family: var(--font-thai);
+        font-size: 5vw;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.8vw;    
+    }
+    .topic-1 .top-info > div{
+        margin-bottom: 1vw;
+    }
+    .top-info textarea,input{
+        height: 7vw;
+        font-family: "Anuphan", serif;
+        font-size: 5vw;
+        background-color: #F1F6FF;
+        border-radius: 1vw;
+        outline: none;
+        border: none;
+    }
+    .top-info input:focus{
+        border: 0.15vw solid rgb(61, 102, 167);
+    }
+    .place input{
+        width: 80.8%;
+    }
+    .floor input{
+        width: 90.3%;
+    }
+    .room input{
+        width: 87.5%;
+    }
+    .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #5279a3; 
+        margin: 1vw 0;
+    }
+
+    .divider::before,
+    .divider::after {
+        content: '';
+        flex: 1;
+        border-bottom: 0.1vw solid #5279a3;
+    }
+
+    .divider:not(:empty)::before {
+        margin-right: .75vw;
+    }
+
+    .divider:not(:empty)::after {
+        margin-left: .75vw;
+    }
+    .explane textarea{
+        margin-top: 1vw;
+        width: 98%;
+        height: 30vw;   
+        outline: none;
+        border: none;
+        resize: none;
+    }
+    .explane textarea:focus{
+        border: 0.15vw solid rgb(61, 102, 167);
+    }
+    /* -------------------------problem------------------------- */
+    .topic-2{
+        height: 115%;
+
+    }
+    .type, .type > .choose, .more-info, textarea{
+        font-family: var(--font-thai);
+        font-size: 5vw;
+        margin-bottom: 0.5vw;
+        border-radius: 1vw;
+    }
+    .choose{
+        width: 82%;
+        height: 7vw; 
+    }
+    textarea{
+        width: 99%;
+        height: 30vw;
+        resize: none;
+    }
+    /* -------------------------Upload--------------------------- */
+    .custum-file-upload {
+        height: 55vw;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 2vw;
+        border-radius: 1vw;
+    }
+    .custum-file-upload .icon i {
+        font-size: 12vw;
+        /* fill: rgba(75, 85, 99, 1); */
+    }
+
+    .custum-file-upload .text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-english);
+        font-size: 5vw;
+    }
+    .button2 {
+        font-size: 5vw;
+        width: 80%;
+        height: 10vw;
+        margin-top: 8.6vh;
+    }
+    #previewList {
+       display: grid;
         grid-template-columns: 1fr;
-        padding: 8.6vh 1vw 0 1vw;
     }
-    .box-bg > div{
-        padding: 0 1vw;
+    .previewList {
+        position: absolute;
+        max-width: 60vw;
+        
     }
+
+    .file-item {
+        display: flex;
+        align-items: center;
+        background: #f0f0f0;
+        height: 10vw;
+        border-radius: 1vw;
+        padding: 1vw 1vw;
+        width: 85vw;
+        margin-left: 1vw;
+        font-family: var(--font-english);
+        position: relative;
+        text-align: center;
+    }
+
+    .file-item img {
+        display: none;
+    }
+
+    .file-item .file-name {
+        font-size: 5vw;
+        margin-top: 0vw;
+        word-break: break-word;
+        font-family: var(--font-english);
     
+    }
+
+    .cancel-btn {
+        position: absolute;
+        top: 45%;
+        left: 90%;
+        border: none;
+        cursor: pointer;
+        font-size: 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #555;
+    }
+  
+}
+@media screen and (max-width: 431px) {
+    .navbar .icon-container{
+        font-size: 6.4vw;
+    }
+ 
 }

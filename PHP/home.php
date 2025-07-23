@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../CSS/home.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="website icon" type="png" href="img/Logo bodin.PNG">
+    <link rel="website icon" type="png" href="https://inf.bodin.ac.th/_resx/upload/img/brand/logo/color.png">
 <body>
     <nav class="navbar">
         <div class="logo-info">

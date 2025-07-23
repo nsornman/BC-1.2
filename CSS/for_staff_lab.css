@@ -88,11 +88,15 @@ table td:first-child{
     padding-left: 0.8vw;
     text-align: left;
     width: 32%;
+    white-space: normal;
+    overflow-wrap: break-word; 
+    word-break: break-word;
 }
 table table td:nth-child(2),table td:nth-child(3) {
     text-align: center;
     padding-left: 0.8vw;
     width: 33%;
+    justify-content: center;
 }
 thead{
     font-size: 1.4vw;
@@ -111,8 +115,12 @@ thead th:nth-child(3){
 tbody td:nth-child(3){
     padding-right: 1.7vw;
     justify-content: center;
+    align-items: center;
 }
-
+tbody td:nth-child(3) .status{
+    justify-content: center;
+    align-items: center;
+}
 td{
     text-align: center;
     font-size: 1.2vw; 
@@ -148,11 +156,12 @@ tbody td:nth-child(3){
     border: none;
     padding: 1vw;
     border-radius: 1vw;
-    max-width: 35vw;
+    width: 35vw;
     font-size: 1vw;
     position: absolute;
     top: 0;
-    left: 10%;
+    left: 20%;
+    
 }
 
 .case-detail .header {
@@ -163,11 +172,19 @@ tbody td:nth-child(3){
     display: flex;
     justify-content: space-between;
     /* gap: 1vw; */
+    
 }
 .case-detail .case-title{
     display: flex;
-    justify-self: start;
+    justify-content: start;
     gap: 1vw;
+    
+}
+.case-detail .case-title .place{
+    width: 15vw;
+    white-space: normal;
+    overflow-wrap: break-word; 
+    word-break: break-word;
 }
 .case-detail .line{
     border-bottom: 0.15vw solid #162844;
@@ -177,15 +194,107 @@ tbody td:nth-child(3){
     margin: 1vw 0;
     display:flex;
     flex-direction: column;
-    align-items: flex-start ;
+    align-items: flex-start;
 }
 .case-detail-content > div {
   margin-bottom: 0.5vw;
 }
 
+image-slider {
+    position: relative;
+    width: 50%;
+    max-width: fit-content;
+    margin: 1vw 0;
+}
+
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    border-radius: 1vw;
+    overflow: hidden;  
+    width: 50%; 
+}
+
+        .slider-wrapper {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .slide img {    
+            max-width: fit-content;
+            max-height: 15vw;
+            object-fit: contain;
+            border-radius: 1vw;
+        }
+
+        .slider-btn {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            z-index: 2;
+            user-select: none;
+        }
+
+        .slider-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev-btn {
+            border-radius: 0 4px 4px 0;
+        }
+
+        .next-btn {
+            border-radius: 4px 0 0 4px;
+        }
+
+    
+        .slider-dots {
+            text-align: center;
+            margin-top: 10px;
+            align-items: center;
+        }
+
+        .dot {
+            height: 0.7vw;
+            width: 0.7vw;
+            margin: 0 3px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
 .status-pending {
     background-color: rgba(190, 89, 89, 0.7);
     border: 0.15vw solid rgba(190, 89, 89,1) ;
+    
 }
 
 .status-inprogress {
