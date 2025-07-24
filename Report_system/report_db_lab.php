@@ -7,6 +7,7 @@ session_start();
 //     die("ยังไม่ได้ login หรือ session หมดอายุ");
 //     header("Location: ../Register_system/login.php"); // Redirect to login page}
 // }
+header('Content-Type: application/json');
 $year = date("y");
 $month = (int)date("m");
 $day = (int)date("d"); 
@@ -93,16 +94,30 @@ if (!empty($uploadedFiles)) {
         $escaped_img = '';
     }
 $query = "INSERT INTO report (case_id,  place, floor, room, explane, problem_type, description, img)  VALUES ('$case_id', '$place', '$floor', '$room', '$explane', '$problem_type', '$description', '$escaped_img')";
-if (mysqli_query($connect, $query) === TRUE) {
+// if (mysqli_query($connect, $query) === TRUE) {
 
-    echo "New record created successfully";
-    echo "<script>alert('ส่งรายงานเรียบร้อยแล้ว');  window.location.href = '../Report_system/report_lab.php';</script>";
+//     echo "New record created successfully";
+//     echo "<script>alert('ส่งรายงานเรียบร้อยแล้ว');  window.location.href = '../Report_system/report_lab.php';</script>";
+// } else {
+//     // echo "Error: " . $query . "<br>" . mysqli_error($connect);
+//     echo  mysqli_error($connect);
+//     echo "<script>alert('เกิดข้อผิดพลาด: " . mysqli_error($connect) . "'); window.location.href = '../Report_system/report_lab.php';</script>";
+//     exit();
+// }
+if (mysqli_query($connect, $query)) {
+    echo json_encode([
+        'success' => true,
+        'message' => "ส่งรายงานเรียบร้อยแล้ว<br>โปรดติดตามการแก้ปัญหาที่ gmail ของคุณ",
+    ]);
+    
 } else {
-    // echo "Error: " . $query . "<br>" . mysqli_error($connect);
-    echo  mysqli_error($connect);
-    echo "<script>alert('เกิดข้อผิดพลาด: " . mysqli_error($connect) . "'); window.location.href = '../Report_system/report_lab.php';</script>";
-    exit();
+    echo json_encode([
+        'success' => false,
+        'message' => 'เกิดข้อผิดพลาด: ' . mysqli_error($connect)
+    ]);
 }
+exit();
+
 // if (!empty($uploadedFiles)) {
 //         $imgString = implode(',', $uploadedFiles);
 //         $escaped_img = mysqli_real_escape_string($connect, $imgString);

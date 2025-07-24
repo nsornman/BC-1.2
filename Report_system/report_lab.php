@@ -89,8 +89,46 @@
             <div class = "root">    
                 <button type="submit" class="button2" id = "button2" name = "sub-inf">submit</button>
             </div>
-            
+            <script>
+                document.getElementById('button2').addEventListener('click', function (e) {
+                e.preventDefault(); // ป้องกัน form submit ปกติ
+                    Swal.fire({
+                        title: 'ยืนยันการส่งหรือไม่',
+                        text: "คุณต้องการส่งรายงานนี้หรือไม่?",
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'ส่งเลย!',
+                        cancelButtonText: 'ยกเลิก',
+                        customClass: {
+                            popup: 'my-swal-font'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            const form = document.getElementById('box-bg');
+                            const formData = new FormData(form);
 
+                            fetch('report_db_lab.php', {
+                                method: 'POST',
+                                body: formData
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    Swal.fire('ส่งสำเร็จ!', data.message || 'รายงานของคุณถูกส่งแล้ว', 'success')
+                                    .then(() => window.location.href = '../Report_system/report_lab.php');
+                                } else {
+                                    Swal.fire('เกิดข้อผิดพลาด', data.message || 'ไม่สามารถส่งได้', 'error');
+                                }
+                            })
+                            .catch(() => {
+                                Swal.fire('ล้มเหลว', 'กรุณากรอกข้อมูลให้ครบ', 'error');
+                            });
+                        }
+                    });
+                });
+            </script>
         </div> 
     </form>
 </body>

@@ -273,6 +273,11 @@ textarea{
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 
+  .swal2-popup,
+  .swal2-confirm,
+  .swal2-cancel{
+    font-family: var(--font-thai);
+    }   
 /* -------------------------Upload--------------------------- */
 .custum-file-upload {
     display: flex;
