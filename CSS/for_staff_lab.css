@@ -181,10 +181,10 @@ tbody td:nth-child(3){
     
 }
 .case-detail .case-title .place{
-    width: 15vw;
     white-space: normal;
     overflow-wrap: break-word; 
     word-break: break-word;
+    margin: 0;
 }
 .case-detail .line{
     border-bottom: 0.15vw solid #162844;
@@ -199,6 +199,10 @@ tbody td:nth-child(3){
 .case-detail-content > div {
   margin-bottom: 0.5vw;
 }
+.case-detail-content .img{
+    text-align: start;
+}
+
 
 image-slider {
     position: relative;
@@ -214,82 +218,84 @@ image-slider {
     background: #f5f5f5;
     border-radius: 1vw;
     overflow: hidden;  
-    width: 50%; 
+    width: 35vw;
+    height: 20vw;
 }
 
-        .slider-wrapper {
-            flex: 1;
-            overflow: hidden;
-            position: relative;
-        }
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
 
-        .slider-track {
-            display: flex;
-            transition: transform 0.3s ease;
-        }
+.slider-track {
+    display: flex;
+    transition: transform 0.3s ease;
+    transform: translateX(0%);
+}
 
-        .slide {
-            min-width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
+.slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
 
-        .slide img {    
-            max-width: fit-content;
-            max-height: 15vw;
-            object-fit: contain;
-            border-radius: 1vw;
-        }
+.slide img {    
+    max-width: fit-content;
+    max-height: 20vw;
+    object-fit: contain;
+    border-radius: 1vw;
+}
 
-        .slider-btn {
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            font-size: 20px;
-            font-weight: bold;
-            padding: 10px 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            z-index: 2;
-            user-select: none;
-        }
+.slider-btn {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 2;
+    user-select: none;
+}
 
-        .slider-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
 
-        .prev-btn {
-            border-radius: 0 4px 4px 0;
-        }
+.prev-btn {
+    border-radius: 0 4px 4px 0;
+}
 
-        .next-btn {
-            border-radius: 4px 0 0 4px;
-        }
+.next-btn {
+    border-radius: 4px 0 0 4px;
+}
 
-    
-        .slider-dots {
-            text-align: center;
-            margin-top: 10px;
-            align-items: center;
-        }
+.slider-dots {
+    text-align: center;
+    margin-top: 1vw;
+    align-items: center;
+    justify-content: center;
+}
 
-        .dot {
-            height: 0.7vw;
-            width: 0.7vw;
-            margin: 0 3px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.dot {
+    height: 0.7vw;
+    width: 0.7vw;
+    margin: 0 0.2vw;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        .dot.active,
-        .dot:hover {
-            background-color: #717171;
-        }
+.dot.active,
+.dot:hover {
+     background-color: #717171;
+}
 
 .status-pending {
     background-color: rgba(190, 89, 89, 0.7);

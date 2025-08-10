@@ -107,7 +107,7 @@ $query = "INSERT INTO report (case_id,  place, floor, room, explane, problem_typ
 if (mysqli_query($connect, $query)) {
     echo json_encode([
         'success' => true,
-        'message' => "ส่งรายงานเรียบร้อยแล้ว<br>โปรดติดตามการแก้ปัญหาที่ gmail ของคุณ",
+        'message' => "ส่งรายงานเรียบร้อยแล้ว<br>โปรดติดตามการแก้ปัญหาที่ gmail ของคุณ",   
     ]);
     
 } else {
