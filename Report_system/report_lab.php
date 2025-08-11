@@ -70,9 +70,6 @@
                 <div class = "more-info">คำอธิบาย</div>
                 <textarea id="autoExpand" placeholder="กรุณาอธิบายเพิ่มเติม . . ." name = "description"></textarea> 
             </div>             
-            <!-- <input type="file" id="file" name = "file[]" class="file" accept="image/*" multiple >
-            <label for="file" class="custom-file-upload">Upload image( Max 4 Img )</label>
-            <div class="file-list" id="file-list"></div> -->
             <div class="preview-list" id="previewList"></div>
             <label class="custum-file-upload" id="uploadBox">
                 <div class="icon">

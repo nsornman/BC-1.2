@@ -70,7 +70,7 @@ body{
     width: 100%;
 }
 /* ---------------------report-box--------------------------- */
-table{
+/* table{
     height: 45vw;
     width: 35vw;
     background-color: #fff;
@@ -80,7 +80,7 @@ table{
     margin-top: 4.5vw;
     margin-left: 1.5vw;
     overflow-y: auto;
-    max-height: 600px; /* ปรับตามต้องการ */
+    max-height: 600px; 
     font-family: "Anuphan", serif;
     
 }
@@ -138,7 +138,131 @@ tbody td:nth-child(3){
     padding: 0.3vw 2vw 0.3vw 2vw;
     color: #ffffff;
     margin-top: 0.5vw;
+} */
+
+.table-wrapper {
+    height: 50vw;
+    width: 35vw;
+    background-color: #fff;
+    position: relative;
+    font-size: 1.4vw;
+    border-radius: 1vw;
+    margin-top: 5vw;
+    margin-left: 1.5vw;
+    font-family: "Anuphan", serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.4vw;
+    font-family: "Anuphan", serif;
+    
+}
+
+table td:first-child {
+    padding-left: 1vw;
+    text-align: left;
+    width: 32%;
+    white-space: normal;
+    overflow-wrap: break-word; 
+    word-break: break-word;
+}
+
+table td:nth-child(2), table td:nth-child(3) {
+    text-align: center;
+    padding-left: 0.8vw;
+    width: 33%;
+    justify-content: center;
+    align-items: center;
+}
+
+thead {
+    font-size: 1.4vw;
+    font-family: "Poppins", serif;
+    align-items: center;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+thead th {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    border-bottom: 0.2vw solid #162844;
+    background-color: #fff; 
+
+}
+thead th:nth-child(1) {
+    width: 32%;
+}
+thead th:nth-child(2) {
+    width: 33%;
+}
+thead th:nth-child(3) {
+    width: 33%;
+}
+
+.tbody-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tbody td:nth-child(3) {
+    padding-right: 1.7vw;
+    justify-content: center;
+    align-items: center;
+}
+
+tbody td:nth-child(3) .status {
+    justify-content: center;
+    align-items: center;
+}
+
+td {
+    text-align: center;
+    font-size: 1.2vw; 
+    padding: 1vw;
+}
+
+tbody td:nth-child(3) {
+    display: flex;  
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5vw;
+    transform: translateX(20%);
+    border-radius: 2vw;
+    width: 5.5vw;
+    padding: 0.3vw 2vw 0.3vw 2vw;
+    color: #ffffff;
+    margin-top: 0.5vw;
+}
+
+/* Scrollbar styling */
+.tbody-wrapper::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+.tbody-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0.25vw;
+}
+
+.tbody-wrapper::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 0.25vw;
+}
+
+.tbody-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
 .icon-button {
     background: none;
     border: none;
@@ -235,7 +359,7 @@ image-slider {
 }
 
 .slide {
-    min-width: 100%;
+    min-width: 96%;
     display: flex;
     justify-content: center;
     align-items: center;

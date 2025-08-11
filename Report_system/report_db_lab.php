@@ -7,6 +7,10 @@ session_start();
 //     die("ยังไม่ได้ login หรือ session หมดอายุ");
 //     header("Location: ../Register_system/login.php"); // Redirect to login page}
 // }
+require 'vendor/autoload.php'; // PHPMailer autoload
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 header('Content-Type: application/json');
 $year = date("y");
 $month = (int)date("m");
