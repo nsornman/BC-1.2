@@ -41,13 +41,9 @@
             <div class = "top-info">
                 <div class = "place" >สถานที่ <input type="text" name = "place" required></div>
                 <div class="path2">
-                    <div class = "floor" >ชั้น <input type="number" name = "floor" id = "floor" pattern="[1-4]" maxlength="1" /></div>
+                    <div class = "floor" >ชั้น <input type="number" name = "floor" id = "floor" /></div>
                     <div class= "room"  >ห้อง <input type="text" name = "room" maxlength="4"/></div>
-                    <script>
-                        const floorInput = document.getElementById('floor');
-                    </script>
                 <div class="divider">or</div>
-                    
                 </div>
                 <div class = "explane">อธิบายสถานที่อย่างละเอียด<textarea name="explane" id="explane"></textarea></div>
             </div>
@@ -79,7 +75,6 @@
                     <span>Click to upload image</span>
                 </div>
                 <input type="file" id="file" name = "file[]" class="file" accept="image/*" multiple>
-                
             </label>
             
             <script src="../JS/report_lab.js"></script>
@@ -88,7 +83,18 @@
             </div>
             <script>
                 document.getElementById('button2').addEventListener('click', function (e) {
-                e.preventDefault(); // ป้องกัน form submit ปกติ
+                    e.preventDefault(); // Prevent normal form submission
+
+                    const form = document.getElementById('box-bg');
+                    const placeInput = form.querySelector('input[name="place"]');
+                    const floorInput = form.querySelector('input[name="floor"]');
+                    const problemTypeSelect = form.querySelector('select[name="problem_type"]');
+
+                    if (!placeInput.value || !floorInput.value || !problemTypeSelect.value) {
+                        Swal.fire('ข้อมูลไม่ครบถ้วน', 'กรุณากรอกข้อมูล สถานที่, ชั้น และ ประเภทปัญหา ให้ครบถ้วน', 'warning');
+                        return; // Stop submission if validation fails
+                    }
+
                     Swal.fire({
                         title: 'ยืนยันการส่งหรือไม่',
                         text: "คุณต้องการส่งรายงานนี้หรือไม่?",
@@ -103,24 +109,31 @@
                         }
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            const form = document.getElementById('box-bg');
                             const formData = new FormData(form);
 
                             fetch('report_db_lab.php', {
                                 method: 'POST',
                                 body: formData
                             })
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data.success) {
-                                    Swal.fire('ส่งสำเร็จ!', data.message || 'รายงานของคุณถูกส่งแล้ว', 'success')
-                                    .then(() => window.location.href = '../Report_system/report_lab.php');
-                                } else {
-                                    Swal.fire('เกิดข้อผิดพลาด', data.message || 'ไม่สามารถส่งได้', 'error');
+                            .then(response => response.text()) // Get response as text first for debugging
+                            .then(text => {
+                                console.log("Raw server response:", text); // Log raw response
+                                try {
+                                    const data = JSON.parse(text); // Try to parse the text as JSON
+                                    if (data.success) {
+                                        Swal.fire('ส่งสำเร็จ!', data.message || 'รายงานของคุณถูกส่งแล้ว', 'success')
+                                        .then(() => window.location.href = '../Report_system/report_lab.php');
+                                    } else {
+                                        Swal.fire('เกิดข้อผิดพลาด', data.message || 'ไม่สามารถส่งรายงานได้', 'error');
+                                    }
+                                } catch (error) {
+                                    console.error("Failed to parse JSON:", error);
+                                    Swal.fire('เกิดข้อผิดพลาด', 'ไม่สามารถประมวลผลการตอบกลับจากเซิร์ฟเวอร์ได้ โปรดตรวจสอบ Console Log', 'error');
                                 }
                             })
-                            .catch(() => {
-                                Swal.fire('ล้มเหลว', 'กรุณากรอกข้อมูลให้ครบ', 'error');
+                            .catch(error => {
+                                console.error('Fetch Error:', error);
+                                Swal.fire('การเชื่อมต่อล้มเหลว', 'ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้', 'error');
                             });
                         }
                     });

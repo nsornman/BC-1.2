@@ -4,6 +4,28 @@
     //     $_SESSION['msg'] = "Please login first.";
     //     header("Location: ../login_system/login.php");
     // }
+    include_once '../login_system/server.php';
+    $sql = "SELECT status, COUNT(*) AS total FROM report GROUP BY status";
+    $result = $connect->query($sql);
+
+    $pending = 0;
+    $inprogress = 0;
+    $done = 0;
+
+    // วนลูปเก็บค่า
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            if ($row['status'] === 'Pending') {
+                $pending = $row['total'];
+            } elseif ($row['status'] === 'Inprogress') {
+                $inprogress = $row['total'];
+            } elseif ($row['status'] === 'Done') {
+                $done = $row['total'];
+            }
+        }
+    }
+
+    $connect->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,17 +63,17 @@
     <div class="list-container">
         <div class="list-item">
           <span>รอดำเนินการ</span>
-          <span class="number">5</span>
+          <span class="number"><?php echo $pending; ?></span>
         </div>
         <div class="line"></div>
         <div class="list-item">
           <span>กำลังดำเนินการ</span>
-          <span class="number">5</span>
+          <span class="number"><?php echo $inprogress; ?></span>
         </div>
         <div class = "line"></div>
         <div class="list-item">
           <span>ดำเนินการเสร็จสิ้น</span>
-          <span class="number">5</span>
+          <span class="number"><?php echo $done; ?></span>
         </div>
     </div>
 </body>

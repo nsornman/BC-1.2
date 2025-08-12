@@ -156,7 +156,7 @@ body{
     }
     .navbar .container{
         display: none;
-        margin-left:  32vw;
+        margin-left: 32vw;
     }
     .navbar .icon-container{
         display: flex;
@@ -167,16 +167,17 @@ body{
         gap: 1.8vw;
     }   
     .list-container{
-        margin: 78vh 0 0 8vw;
-        width: 80vw;
+        margin: 80vh 0 0 5vw;
+        width: 40vh;
         height: 35vw;
+        border-radius: 2vw;
     }
     .list-item {
         font-size: 5vw;
         padding: 3vw 0 1vw 2.5vw;
     }
     .line{
-        width: 75vw;
+        width: 38vh;
         height: 0.5vw;
         margin-left: 2vw;
         border-radius: 1vw;
