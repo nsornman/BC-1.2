@@ -39,12 +39,10 @@ body{
     align-items: center;
 }
 .navbar a{
-    /* display: flex; */
     text-decoration: none;
     color: #fff;
     position: relative;
     padding: 0 2vw;
-    /* justify-content: space-between; */
 }
 .navbar a::before{
     content: "";
@@ -63,22 +61,7 @@ body{
     display: none;
 }
 /* ------------------------------------------content-------------------------------------------- */
-/* .report-info{
-    background-color: #fff;
-    width: 30vw;
-    height: 13vw;
-    margin: 37vw 0 0 1.5vw;
-    border-radius: 1vw;
-    font-family: "Mitr", serif;
-    font-size: 1.2vw;
-    display: flex;
-    justify-content: space-between  ;
-    align-items: center;
-}
-.report-info tr{
-    margin-left: 2vw;
-    padding: 0 2vw 0 2vw;
-} */
+
 .list-container {
     position: relative;
     width: 30vw;

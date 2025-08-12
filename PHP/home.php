@@ -48,7 +48,7 @@
                 <a href="home.php">Home</a>
             </li>
             <li class = "report">
-                <a href="../Report_system/report.php">Report</a>
+                <a href="../Report_system/report_lab.php">Report</a>
             </li>
             <li class="contact">
                 <a href="../HTML/contact.html">Contact</a>

@@ -135,198 +135,196 @@
 
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    const statusCells = document.querySelectorAll("td.status");
+            document.addEventListener("DOMContentLoaded", function () {
+            const statusCells = document.querySelectorAll("td.status");
 
-    statusCells.forEach((cell) => {
-        const statusText = cell.textContent.trim();
+            statusCells.forEach((cell) => {
+                const statusText = cell.textContent.trim();
 
-        if (statusText.includes("Pending")) {
-            cell.classList.add("status-pending");
-        } else if (statusText.includes("Inprogress")) {
-            cell.classList.add("status-inprogress");
-        } else if (statusText.includes("Done")) {
-            cell.classList.add("status-done");
-        }
-    });
-});
+                if (statusText.includes("Pending")) {
+                    cell.classList.add("status-pending");
+                } else if (statusText.includes("Inprogress")) {
+                    cell.classList.add("status-inprogress");
+                } else if (statusText.includes("Done")) {
+                    cell.classList.add("status-done");
+                }
+            });
+        });
 
-function slideImage(sliderId, direction) {
-    const slider = document.getElementById(sliderId);
-    if (!slider) return;
-    
-    const track = slider.querySelector('.slider-track');
-    const slides = slider.querySelectorAll('.slide');
-    const dots = slider.querySelectorAll('.dot');
-    
-    if (!track || slides.length === 0) return;
-    
-    // หา index ปัจจุบัน
-    let currentIndex = 0;
-    slides.forEach((slide, index) => {
-        if (slide.classList.contains('active')) {
-            currentIndex = index;
-        }
-    });
-    
-    // คำนวณ index ใหม่
-    let newIndex = currentIndex + direction;
-    
-    // วนกลับไปที่ต้นหรือท้าย
-    if (newIndex >= slides.length) {
-        newIndex = 0;
-    } else if (newIndex < 0) {
-        newIndex = slides.length - 1;
-    }
-    
-    // ลบ active class จากทุกอัน
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    // เพิ่ม active class ให้ใหม่
-    if (slides[newIndex]) {
-        slides[newIndex].classList.add('active');
-    }
-    if (dots[newIndex]) {
-        dots[newIndex].classList.add('active');
-    }
-    
-    // เลื่อน track
-    const translateX = -newIndex * 100;
-    track.style.transform = `translateX(${translateX}%)`;
-}
-
-function currentSlide(sliderId, slideNumber) {
-    const slider = document.getElementById(sliderId);
-    if (!slider) return;
-    
-    const track = slider.querySelector('.slider-track');
-    const slides = slider.querySelectorAll('.slide');
-    const dots = slider.querySelectorAll('.dot');
-    
-    if (!track || slides.length === 0) return;
-    
-    const newIndex = slideNumber - 1;
-    
-    // ตรวจสอบ index ที่ถูกต้อง
-    if (newIndex < 0 || newIndex >= slides.length) return;
-    
-    // ลบ active class จากทุกอัน
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    // เพิ่ม active class ให้ใหม่
-    if (slides[newIndex]) {
-        slides[newIndex].classList.add('active');
-    }
-    if (dots[newIndex]) {
-        dots[newIndex].classList.add('active');
-    }
-    
-    // เลื่อน track
-    const translateX = -newIndex * 100;
-    track.style.transform = `translateX(${translateX}%)`;
-}
-
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
-    const activePopover = document.querySelector('[popover]:popover-open');
-    if (activePopover) {
-        const slider = activePopover.querySelector('.image-slider');
-        if (slider) {
-            if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                slideImage(slider.id, -1);
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                slideImage(slider.id, 1);
+        function slideImage(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) return;
+            
+            const track = slider.querySelector('.slider-track');
+            const slides = slider.querySelectorAll('.slide');
+            const dots = slider.querySelectorAll('.dot');
+            
+            if (!track || slides.length === 0) return;
+            
+            
+            let currentIndex = 0;
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+            
+            
+            let newIndex = currentIndex + direction;
+            
+            
+            if (newIndex >= slides.length) {
+                newIndex = 0;
+            } else if (newIndex < 0) {
+                newIndex = slides.length - 1;
             }
+            
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            
+            if (slides[newIndex]) {
+                slides[newIndex].classList.add('active');
+            }
+            if (dots[newIndex]) {
+                dots[newIndex].classList.add('active');
+            }
+            
+            
+            const translateX = -newIndex * 100;
+            track.style.transform = `translateX(${translateX}%)`;
         }
-    }
-});
 
-// Touch/Mouse drag support
-document.addEventListener('DOMContentLoaded', function() {
-    const sliders = document.querySelectorAll('.image-slider');
-    
-    sliders.forEach(slider => {
-        let startX = 0;
-        let isDragging = false;
-        
-        const sliderWrapper = slider.querySelector('.slider-wrapper');
-        if (!sliderWrapper) return;
-        
-        // Touch events
-        sliderWrapper.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        }, { passive: true });
-        
-        sliderWrapper.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-        }, { passive: false });
-        
-        sliderWrapper.addEventListener('touchend', (e) => {
-            if (!isDragging) return;
+        function currentSlide(sliderId, slideNumber) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) return;
             
-            const endX = e.changedTouches[0].clientX;
-            const diffX = startX - endX;
+            const track = slider.querySelector('.slider-track');
+            const slides = slider.querySelectorAll('.slide');
+            const dots = slider.querySelectorAll('.dot');
             
-            // ถ้าเลื่อนมากกว่า 50px
-            if (Math.abs(diffX) > 50) {
-                if (diffX > 0) {
-                    // Swipe left - next image
-                    slideImage(slider.id, 1);
-                } else {
-                    // Swipe right - previous image
-                    slideImage(slider.id, -1);
+            if (!track || slides.length === 0) return;
+            
+            const newIndex = slideNumber - 1;
+            
+            
+            if (newIndex < 0 || newIndex >= slides.length) return;
+            
+           
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+        
+            if (slides[newIndex]) {
+                slides[newIndex].classList.add('active');
+            }
+            if (dots[newIndex]) {
+                dots[newIndex].classList.add('active');
+            }
+            
+            
+            const translateX = -newIndex * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+        }
+
+        // <- ,->
+        document.addEventListener('keydown', function(e) {
+            const activePopover = document.querySelector('[popover]:popover-open');
+            if (activePopover) {
+                const slider = activePopover.querySelector('.image-slider');
+                if (slider) {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        slideImage(slider.id, -1);
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        slideImage(slider.id, 1);
+                    }
                 }
             }
+        });
+
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = document.querySelectorAll('.image-slider');
             
-            isDragging = false;
-        }, { passive: true });
-        
-        // Mouse events
-        sliderWrapper.addEventListener('mousedown', (e) => {
-            startX = e.clientX;
-            isDragging = true;
-            e.preventDefault();
+            sliders.forEach(slider => {
+                let startX = 0;
+                let isDragging = false;
+                
+                const sliderWrapper = slider.querySelector('.slider-wrapper');
+                if (!sliderWrapper) return;
+                
+                
+                sliderWrapper.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                }, { passive: true });
+                
+                sliderWrapper.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                }, { passive: false });
+                
+                sliderWrapper.addEventListener('touchend', (e) => {
+                    if (!isDragging) return;
+                    
+                    const endX = e.changedTouches[0].clientX;
+                    const diffX = startX - endX;
+                    
+                    
+                    if (Math.abs(diffX) > 50) {
+                        if (diffX > 0) {
+                            slideImage(slider.id, 1);
+                        } else {
+                            slideImage(slider.id, -1);
+                        }
+                    }
+                    
+                    isDragging = false;
+                }, { passive: true });
+                
+                
+                sliderWrapper.addEventListener('mousedown', (e) => {
+                    startX = e.clientX;
+                    isDragging = true;
+                    e.preventDefault();
+                });
+                
+                sliderWrapper.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                });
+                
+                sliderWrapper.addEventListener('mouseup', (e) => {
+                    if (!isDragging) return;
+                    
+                    const endX = e.clientX;
+                    const diffX = startX - endX;
+                    
+                    if (Math.abs(diffX) > 50) {
+                        if (diffX > 0) {
+                            slideImage(slider.id, 1);
+                        } else {
+                            slideImage(slider.id, -1);
+                        }
+                    }
+                    
+                    isDragging = false;
+                });
+                
+                
+                sliderWrapper.addEventListener('dragstart', (e) => {
+                    e.preventDefault();
+                });
+                
+                
+                sliderWrapper.addEventListener('mouseleave', () => {
+                    isDragging = false;
+                });
+            });
         });
-        
-        sliderWrapper.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-        });
-        
-        sliderWrapper.addEventListener('mouseup', (e) => {
-            if (!isDragging) return;
-            
-            const endX = e.clientX;
-            const diffX = startX - endX;
-            
-            if (Math.abs(diffX) > 50) {
-                if (diffX > 0) {
-                    slideImage(slider.id, 1);
-                } else {
-                    slideImage(slider.id, -1);
-                }
-            }
-            
-            isDragging = false;
-        });
-        
-        // ป้องกันการลาก img
-        sliderWrapper.addEventListener('dragstart', (e) => {
-            e.preventDefault();
-        });
-        
-        // Handle mouse leave
-        sliderWrapper.addEventListener('mouseleave', () => {
-            isDragging = false;
-        });
-    });
-});
     </script>
 </body>
 </html>

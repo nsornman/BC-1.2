@@ -1,9 +1,3 @@
-/* :root {
-    --pending-color: #BE5959;
-    --inprogress-color: #DEB364;
-    --text-color: #000000;
-    --font-family: 'Poppins', sans-serif;
-} */
 body{
     background-color: rgb(164, 164, 164);
 }
@@ -46,12 +40,10 @@ body{
     align-items: center;
 }
 .navbar a{
-    /* display: flex; */
     text-decoration: none;
     color: #fff;
     position: relative;
     padding: 0 2vw;
-    /* justify-content: space-between; */
 }
 .navbar .icon-container{
     display: none;
@@ -70,76 +62,6 @@ body{
     width: 100%;
 }
 /* ---------------------report-box--------------------------- */
-/* table{
-    height: 45vw;
-    width: 35vw;
-    background-color: #fff;
-    position: relative;
-    font-size: 1.4vw;
-    border-radius: 1vw;
-    margin-top: 4.5vw;
-    margin-left: 1.5vw;
-    overflow-y: auto;
-    max-height: 600px; 
-    font-family: "Anuphan", serif;
-    
-}
-table td:first-child{
-    padding-left: 0.8vw;
-    text-align: left;
-    width: 32%;
-    white-space: normal;
-    overflow-wrap: break-word; 
-    word-break: break-word;
-}
-table table td:nth-child(2),table td:nth-child(3) {
-    text-align: center;
-    padding-left: 0.8vw;
-    width: 33%;
-    justify-content: center;
-}
-thead{
-    font-size: 1.4vw;
-    font-family: "Poppins", serif;
-    align-items: center;
-}
-thead th{
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    border-bottom:0.2vw solid #162844 ;
-}
-thead th:nth-child(3){
-    padding-right: 1vw;
-}
-
-tbody td:nth-child(3){
-    padding-right: 1.7vw;
-    justify-content: center;
-    align-items: center;
-}
-tbody td:nth-child(3) .status{
-    justify-content: center;
-    align-items: center;
-}
-td{
-    text-align: center;
-    font-size: 1.2vw; 
-    padding: 1vw;
-}
-tbody td:nth-child(3){
-    display: flex;  
-    flex-direction:row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5vw;
-    transform: translateX(20%);
-    border-radius: 2vw;
-    width: 5.5vw;
-    padding: 0.3vw 2vw 0.3vw 2vw;
-    color: #ffffff;
-    margin-top: 0.5vw;
-} */
-
 .table-wrapper {
     height: 50vw;
     width: 35vw;

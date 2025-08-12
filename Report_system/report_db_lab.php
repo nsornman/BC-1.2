@@ -1,11 +1,11 @@
 <?php 
-// Turn off error reporting to prevent HTML errors from breaking JSON output
+
 error_reporting(0);
 ini_set('display_errors', 0);
 
 header('Content-Type: application/json');
 
-// --- DEPENDENCIES ---
+
 include_once '../login_system/server.php'; 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
@@ -15,9 +15,7 @@ use PHPMailer\PHPMailer\Exception;
 // session_start();
 // if (!isset($_SESSION['student_id'])) { ... }
 
-// --- MAIN LOGIC ---
 
-// Generate Case ID
 $year = date("y");
 $month = (int)date("m");
 $day = (int)date("d"); 
@@ -29,7 +27,6 @@ $count = ($row_count['count'] ?? 0) + 1;
 $nn = str_pad($count, 2, "0", STR_PAD_LEFT);
 $case_id = $today. $nn;
 
-// Sanitize Form Inputs
 $place = mysqli_real_escape_string($connect, $_POST['place'] ?? '');
 $floor = mysqli_real_escape_string($connect, $_POST['floor'] ?? '');
 $room = mysqli_real_escape_string($connect, $_POST['room'] ?? '');
@@ -37,13 +34,12 @@ $problem_type = mysqli_real_escape_string($connect, $_POST['problem_type'] ?? ''
 $description = mysqli_real_escape_string($connect, $_POST['description'] ?? '');
 $explane = mysqli_real_escape_string($connect, $_POST['explane'] ?? '');
 
-// Input Validation
 if (empty($place) || empty($floor) || empty($problem_type)) {
     echo json_encode(['success' => false, 'message' => 'กรุณากรอกข้อมูลที่จำเป็น: สถานที่, ชั้น, และประเภทปัญหา']);
     exit();
 }
 
-// File Upload Handling
+
 $escaped_img = '';
 if (!empty($_FILES['file']['name'][0])) {
     $targetDir = 'Report_pic/' . date("Y-m") . '/' . $case_id . '/';
@@ -51,7 +47,7 @@ if (!empty($_FILES['file']['name'][0])) {
         mkdir($targetDir, 0777, true);
     }
     $uploadedFiles = [];
-    $maxFileSize = 15 * 1024 * 1024; // 15 MB
+    $maxFileSize = 15 * 1024 * 1024; 
     $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
     $fileCount = count($_FILES['file']['name']);
 
@@ -76,7 +72,6 @@ if (!empty($_FILES['file']['name'][0])) {
     }
 }
 
-// Database Insertion (std_id field is removed)
 $query = "INSERT INTO report (case_id, place, floor, room, explane, problem_type, description, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = mysqli_prepare($connect, $query);
 mysqli_stmt_bind_param($stmt, "ssssssss", $case_id, $place, $floor, $room, $explane, $problem_type, $description, $escaped_img);
@@ -317,7 +312,7 @@ if (mysqli_stmt_execute($stmt)) {
         </body>
         </html>';
 
-// ส่วนข้อความสำหรับ email client ที่ไม่รองรับ HTML
+
 $mail->AltBody = "เรียน ผู้ใช้งาน\n\n" .
                  "ระบบได้รับเรื่องของท่านแล้ว\n\n" .
                  "Case ID: " . $case_id . "\n" .
@@ -330,8 +325,8 @@ $mail->AltBody = "เรียน ผู้ใช้งาน\n\n" .
                  "ระบบแจ้งซ่อม โรงเรียนบดินทรเดชา";
             $mail->send();
             $email_sent = true;
-        } catch (Exception $e) {
-            // Log email errors to a file
+        } 
+        catch (Exception $e) {
             $error_message = date('[Y-m-d H:i:s]') . " Mailer Error: " . $mail->ErrorInfo . "\n";
             file_put_contents('email_errors.log', $error_message, FILE_APPEND);
         }
@@ -344,7 +339,7 @@ $mail->AltBody = "เรียน ผู้ใช้งาน\n\n" .
         ]);
     } else {
         echo json_encode([
-            'success' => true, // The report was saved, so it's a success from the user's perspective
+            'success' => true, 
             'message' => "ส่งรายงานเรียบร้อยแล้ว<br>แต่ไม่สามารถส่งอีเมลยืนยันได้",
         ]);
     }

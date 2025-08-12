@@ -25,7 +25,7 @@
                 <a href="../Report_system/report.php">Report</a>
             </li>
             <li class="contact">
-                <a href="contact.html">Contact</a>
+                <a href="../HTML/contact.html">Contact</a>
             </li>
         </ul>
         <div class = "icon-container">
@@ -83,7 +83,7 @@
             </div>
             <script>
                 document.getElementById('button2').addEventListener('click', function (e) {
-                    e.preventDefault(); // Prevent normal form submission
+                    e.preventDefault(); 
 
                     const form = document.getElementById('box-bg');
                     const placeInput = form.querySelector('input[name="place"]');
@@ -92,7 +92,7 @@
 
                     if (!placeInput.value || !floorInput.value || !problemTypeSelect.value) {
                         Swal.fire('ข้อมูลไม่ครบถ้วน', 'กรุณากรอกข้อมูล สถานที่, ชั้น และ ประเภทปัญหา ให้ครบถ้วน', 'warning');
-                        return; // Stop submission if validation fails
+                        return; 
                     }
 
                     Swal.fire({
@@ -115,11 +115,11 @@
                                 method: 'POST',
                                 body: formData
                             })
-                            .then(response => response.text()) // Get response as text first for debugging
+                            .then(response => response.text())
                             .then(text => {
-                                console.log("Raw server response:", text); // Log raw response
+                                console.log("Raw server response:", text);
                                 try {
-                                    const data = JSON.parse(text); // Try to parse the text as JSON
+                                    const data = JSON.parse(text);
                                     if (data.success) {
                                         Swal.fire('ส่งสำเร็จ!', data.message || 'รายงานของคุณถูกส่งแล้ว', 'success')
                                         .then(() => window.location.href = '../Report_system/report_lab.php');
