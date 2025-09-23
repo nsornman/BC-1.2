@@ -6,7 +6,7 @@
     $username = "root"; // Database username
     $password = ""; // Database password        
     $dbname = "report"; // Database name
-    // Create connection    
+   
     $connect = mysqli_connect($servername, $username, $password, $dbname);
     mysqli_set_charset($connect, "utf8");
     // Check connection

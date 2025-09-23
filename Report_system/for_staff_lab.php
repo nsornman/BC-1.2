@@ -55,7 +55,7 @@
                             $infoId = "info_" . htmlspecialchars($row['case_id']);
                             $sliderId = "slider_" . htmlspecialchars($row['case_id']);
                             
-                            $md = date("Y-m", strtotime($row['report_date'])); // Extract
+                            $md = date("Y-m", strtotime($row['report_date']));
                             $imageHtml = '';
                             
                             if (!isset($row['img']) || empty($row['img'])) {

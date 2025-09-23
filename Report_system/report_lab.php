@@ -118,6 +118,11 @@
                             .then(response => response.text())
                             .then(text => {
                                 console.log("Raw server response:", text);
+                                if (text.trim() === "") {
+                                    console.error("Server returned an empty response.");
+                                    Swal.fire('เกิดข้อผิดพลาด', 'ไม่ได้รับการตอบกลับจากเซิร์ฟเวอร์', 'error');
+                                    return;
+                                }
                                 try {
                                     const data = JSON.parse(text);
                                     if (data.success) {
@@ -128,6 +133,7 @@
                                     }
                                 } catch (error) {
                                     console.error("Failed to parse JSON:", error);
+                                    console.error("Raw response that failed:", text);
                                     Swal.fire('เกิดข้อผิดพลาด', 'ไม่สามารถประมวลผลการตอบกลับจากเซิร์ฟเวอร์ได้ โปรดตรวจสอบ Console Log', 'error');
                                 }
                             })

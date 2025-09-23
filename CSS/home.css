@@ -130,7 +130,7 @@ body{
         margin-left:  32vw;
     }
     .list-container{
-        margin: 78vh 0 0 1.5vw;
+        margin: 90% 0 0 1.5vw;
     }
 }
 @media (max-width: 431px){
@@ -150,10 +150,14 @@ body{
         gap: 1.8vw;
     }   
     .list-container{
-        margin: 80vh 0 0 5vw;
+        position: absolute;
+        /* margin: 80vh 0 0 5vw; */
         width: 40vh;
         height: 35vw;
         border-radius: 2vw;
+        bottom: 3%;
+        left: 50%;
+        transform: translateX(-52%);
     }
     .list-item {
         font-size: 5vw;
