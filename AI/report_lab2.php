@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/report2_lab.css">  
+    <link rel="stylesheet" href="../AI/report2_lab2.css">  
     <link rel="website icon" type="png" href="https://inf.bodin.ac.th/_resx/upload/img/brand/logo/color.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -19,7 +19,7 @@
         </div>
         <ul class="container">
             <li class = "home">
-                <a href="../Report_system/home_lab.php">Home</a>
+                <a href="../PHP/home.php">Home</a>
             </li>
             <li class = "report">
                 <a href="../Report_system/report.php">Report</a>

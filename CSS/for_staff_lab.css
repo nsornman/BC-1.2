@@ -1,8 +1,9 @@
-body{
+body {
     background-color: rgb(164, 164, 164);
 }
+
 /* ------------------------------Nav Bar--------------------------------------- */
-.navbar{
+.navbar {
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2.5vh;
@@ -15,40 +16,48 @@ body{
     left: 0;
     z-index: 1001;
 }
-.navbar .logo-info{
+
+.navbar .logo-info {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 1vw;
 }
-.navbar .logo{
+
+.navbar .logo {
     width: 4vh;
     height: 5.5vh;
     padding-top: 0vw;
 }
-.navbar .school_name{
+
+.navbar .school_name {
     margin-right: -10vw;
     margin-left: 1vw;
 }
-.navbar .container{
+
+.navbar .container {
     display: flex;
     margin-left: 40vw;
 }
-.navbar li{
+
+.navbar li {
     display: flex;
     padding: 0 3vw 0 2vw;
     align-items: center;
 }
-.navbar a{
+
+.navbar a {
     text-decoration: none;
     color: #fff;
     position: relative;
     padding: 0 2vw;
 }
-.navbar .icon-container{
+
+.navbar .icon-container {
     display: none;
 }
-.navbar a::before{
+
+.navbar a::before {
     content: "";
     position: absolute;
     background-color: #ffffff;
@@ -58,19 +67,46 @@ body{
     bottom: -0.85vw;
     transition: all 0.5s ease-in-out;
 }
-.navbar a:hover:before{
+
+.navbar a:hover:before {
     width: 100%;
 }
+
+/* ---------------------Table Slide Button (Mobile Only) --------------------------- */
+.table-slide-button {
+    display: none;
+    position: fixed;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #162844;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1002;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.table-slide-button:hover {
+    background-color: #2a3d5a;
+    transform: translateX(-50%) scale(1.1);
+}
+
 /* ---------------------report-box--------------------------- */
 .table-wrapper {
-    height: 50vw;
-    width: 35vw;
+    height: 90%;
+    width: 35%;
     background-color: #fff;
-    position: relative;
-    font-size: 1.4vw;
+    position: absolute;
+    top: 53%;
+    left: 2%;
+    transform: translateY(-50%);
     border-radius: 1vw;
-    margin-top: 5vw;
-    margin-left: 1.5vw;
     font-family: "Anuphan", serif;
     overflow: hidden;
     display: flex;
@@ -80,9 +116,9 @@ body{
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 1.4vw;
+    font-size: 24px;
     font-family: "Anuphan", serif;
-    
+
 }
 
 table td:first-child {
@@ -90,11 +126,12 @@ table td:first-child {
     text-align: left;
     width: 32%;
     white-space: normal;
-    overflow-wrap: break-word; 
+    overflow-wrap: break-word;
     word-break: break-word;
 }
 
-table td:nth-child(2), table td:nth-child(3) {
+table td:nth-child(2),
+table td:nth-child(3) {
     text-align: center;
     padding-left: 0.8vw;
     width: 33%;
@@ -116,15 +153,18 @@ thead th {
     padding-top: 1vw;
     padding-bottom: 1vw;
     border-bottom: 0.2vw solid #162844;
-    background-color: #fff; 
+    background-color: #fff;
 
 }
+
 thead th:nth-child(1) {
     width: 32%;
 }
+
 thead th:nth-child(2) {
     width: 33%;
 }
+
 thead th:nth-child(3) {
     width: 33%;
 }
@@ -148,12 +188,12 @@ tbody td:nth-child(3) .status {
 
 td {
     text-align: center;
-    font-size: 1.2vw; 
+    font-size: 1.2vw;
     padding: 1vw;
 }
 
 tbody td:nth-child(3) {
-    display: flex;  
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -191,10 +231,10 @@ tbody td:nth-child(3) {
     padding: 0;
     margin: 0;
     cursor: pointer;
-    line-height: 0; 
+    line-height: 0;
     outline: none;
     color: #ffffff;
-    
+
 }
 
 .case-detail {
@@ -207,7 +247,6 @@ tbody td:nth-child(3) {
     position: absolute;
     top: 0;
     left: 20%;
-    
 }
 
 .case-detail .header {
@@ -218,34 +257,40 @@ tbody td:nth-child(3) {
     display: flex;
     justify-content: space-between;
     /* gap: 1vw; */
-    
+
 }
-.case-detail .case-title{
+
+.case-detail .case-title {
     display: flex;
     justify-content: start;
     gap: 1vw;
-    
+
 }
-.case-detail .case-title .place{
+
+.case-detail .case-title .place {
     white-space: normal;
-    overflow-wrap: break-word; 
+    overflow-wrap: break-word;
     word-break: break-word;
     margin: 0;
 }
-.case-detail .line{
+
+.case-detail .line {
     border-bottom: 0.15vw solid #162844;
 }
+
 .case-detail .case-detail-content {
     font-size: 1.2vw;
     margin: 1vw 0;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-.case-detail-content > div {
-  margin-bottom: 0.5vw;
+
+.case-detail-content>div {
+    margin-bottom: 0.5vw;
 }
-.case-detail-content .img{
+
+.case-detail-content .img {
     text-align: start;
 }
 
@@ -263,7 +308,7 @@ image-slider {
     align-items: center;
     background: #f5f5f5;
     border-radius: 1vw;
-    overflow: hidden;  
+    overflow: hidden;
     width: 35vw;
     height: 20vw;
 }
@@ -288,7 +333,7 @@ image-slider {
     padding: 10px;
 }
 
-.slide img {    
+.slide img {
     max-width: fit-content;
     max-height: 20vw;
     object-fit: contain;
@@ -340,13 +385,13 @@ image-slider {
 
 .dot.active,
 .dot:hover {
-     background-color: #717171;
+    background-color: #717171;
 }
 
 .status-pending {
     background-color: rgba(190, 89, 89, 0.7);
-    border: 0.15vw solid rgba(190, 89, 89,1) ;
-    
+    border: 0.15vw solid rgba(190, 89, 89, 1);
+
 }
 
 .status-inprogress {
@@ -357,4 +402,130 @@ image-slider {
 .status-done {
     background-color: rgba(107, 174, 121, 0.7);
     border: 0.15vw solid rgba(107, 174, 121, 1);
+}
+
+@media(max-width: 768px) {
+        body{
+        overflow: hidden;
+    }
+    .navbar .school_name {
+        display: none;
+    }
+
+    .navbar .container {
+        display: none;
+        margin-left: 32vw;
+    }
+
+    .navbar .icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: 50vw;
+        font-size: 6.4vw;
+        gap: 1.8vw;
+    }
+
+    .table-slide-button {
+        display: block;
+    }
+
+    .table-wrapper {
+        width: 95%;
+        height: 70%;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        border-radius: 20px 20px 0 0;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    /* When table is shown (slided up) */
+    .table-wrapper.show {
+        transform: translate(-50%, -100%);
+    }
+
+    /* Adjust table content for mobile */
+    thead {
+        font-size: 4vw;
+    }
+
+    td {
+        font-size: 3.5vw;
+        padding: 2vw;
+    }
+
+    tbody td:nth-child(3) {
+        transform: translateX(0%);
+        width: auto;
+        padding: 1vw 3vw;
+        border-radius: 4vw;
+    }
+
+    .case-detail {
+        width: 85vw;
+        left: 7.5vw;
+        font-size: 3vw;
+        padding: 4vw;
+        border-radius: 4vw;
+    }
+
+    .case-detail .header {
+        font-size: 4vw;
+        margin-bottom: 3vw;
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    .case-detail .case-title {
+        flex-direction: column;
+        gap: 1vw;
+    }
+
+    .case-detail .case-detail-content {
+        font-size: 3.5vw;
+        margin: 3vw 0;
+    }
+
+    .case-detail-content>div {
+        margin-bottom: 2vw;
+    }
+
+    .slider-container {
+        width: 75vw;
+        height: 40vw;
+        border-radius: 3vw;
+    }
+
+    .slide img {
+        max-height: 40vw;
+        border-radius: 2vw;
+    }
+
+    .slider-dots {
+        margin-top: 3vw;
+    }
+
+    .dot {
+        height: 2vw;
+        width: 2vw;
+        margin: 0 1vw;
+    }
+
+    .tbody-wrapper::-webkit-scrollbar {
+        width: 1.5vw;
+    }
+    tbody td:nth-child(3) {
+        transform: translateX(10%);
+        width: 25vw;
+        padding: 0.3vw 2vw 0.3vw 2vw;
+        
+    }
+    .case-detail {
+
+        font-size: 1vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }

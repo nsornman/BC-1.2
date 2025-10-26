@@ -23,7 +23,7 @@
         </div>
         <ul class="container">
             <li class = "home">
-                <a href="../PHP/home.php">Home</a>
+                <a href="../Report_system/home_lab.php">Home</a>
             </li>
             <li class = "report">
                 <a href="../Report_system/report.php">Report</a>
@@ -32,8 +32,16 @@
                 <a href="HTML/contact.html">Contact</a>
             </li>
         </ul>
+        <div class="icon-container">
+            <a href="home.html"><i class="fa-solid fa-house home" style="color: #ffffff;"></i></a>
+            <a href="report.html"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></a>
+            <a href="contact.html"><i class="fa-solid fa-phone" style="color: #ffffff;"></i></a>
+        </div>
     </nav>
-    <div class="table-wrapper">
+    <button class="table-slide-button" onclick="toggleTable()">
+        <i class="fa-solid fa-chevron-up" id="slide-icon"></i>
+    </button>
+    <div class="table-wrapper" id ="tableWrapper">
     <table>
         <thead class="thead">
             <tr class="head">
@@ -323,6 +331,71 @@
                 sliderWrapper.addEventListener('mouseleave', () => {
                     isDragging = false;
                 });
+            });
+        });
+        
+    </script>
+    <script>
+        let tableVisible = false;
+
+        function toggleTable() {
+            const tableWrapper = document.getElementById('tableWrapper');
+            const slideIcon = document.getElementById('slide-icon');
+            
+            if (tableVisible) {
+                // Hide table (slide down)
+                tableWrapper.classList.remove('show');
+                slideIcon.className = 'fa-solid fa-chevron-up';
+                tableVisible = false;
+            } else {
+                // Show table (slide up)
+                tableWrapper.classList.add('show');
+                slideIcon.className = 'fa-solid fa-chevron-down';
+                tableVisible = true;
+            }
+        }
+
+        // Auto-hide table when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 768) {
+                const tableWrapper = document.getElementById('tableWrapper');
+                const slideButton = document.querySelector('.table-slide-button');
+                
+                if (tableVisible && 
+                    !tableWrapper.contains(event.target) && 
+                    !slideButton.contains(event.target)) {
+                    toggleTable();
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const tableWrapper = document.getElementById('tableWrapper');
+            const slideIcon = document.getElementById('slide-icon');
+            
+            if (window.innerWidth > 768) {
+                // Reset to desktop view
+                tableWrapper.classList.remove('show');
+                slideIcon.className = 'fa-solid fa-chevron-up';
+                tableVisible = false;
+            }
+        });
+
+        // Status color application
+        document.addEventListener("DOMContentLoaded", function () {
+            const statusCells = document.querySelectorAll("td.status");
+
+            statusCells.forEach((cell) => {
+                const statusText = cell.textContent.trim();
+
+                if (statusText.includes("Pending")) {
+                    cell.classList.add("status-pending");
+                } else if (statusText.includes("Inprogress")) {
+                    cell.classList.add("status-inprogress");
+                } else if (statusText.includes("Done")) {
+                    cell.classList.add("status-done");
+                }
             });
         });
     </script>
