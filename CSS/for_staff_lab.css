@@ -1,5 +1,80 @@
-body {
-    background-color: rgb(164, 164, 164);
+:root{
+    --font-thai: 'Anuphan', serif;
+    --font-english: 'Poppins', serif;
+    --focus:rgb(61, 102, 167);
+    --color-1:#2f4c7a;
+    --input-bg: #F1F6FF;
+    --font-normal: 'Calibri', sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+}
+#bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: grab;
+    z-index: 105;
+    overflow: hidden;
+    touch-action: none;
+}
+
+#bg-image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: auto;
+    height: auto;
+    transform-origin: center center;
+    will-change: transform;
+    pointer-events: none; 
+    z-index: 100;
+    transform: scale(1);
+    max-width: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.zoom-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.zoom-controls button {
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    background: none;
+    transition: ease-in-out 0.15s;
+}
+.zoom-controls button:hover {
+    background-color: var(--color-1);
+    color: #fff;
+    border-radius: 10px;
+}
+#zoom-in, #zoom-out {
+    width: 35px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+}
+#zoom-reset {
+    width: 80px;
+    height: 40px;
+    font-size: 18px;
+    font-family: var(--font-english );
+    border-radius: 10%;
 }
 
 /* ------------------------------Nav Bar--------------------------------------- */
@@ -87,7 +162,7 @@ body {
     height: 60px;
     font-size: 24px;
     cursor: pointer;
-    z-index: 1002;
+    z-index: 100;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
@@ -111,6 +186,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    z-index: 110;
 }
 
 table {
@@ -425,9 +501,13 @@ image-slider {
         font-size: 6.4vw;
         gap: 1.8vw;
     }
+    .zoom-controls {
+        display: none   ;
+    }
 
     .table-slide-button {
         display: block;
+        z-index: 120;
     }
 
     .table-wrapper {
@@ -440,12 +520,11 @@ image-slider {
         transition: transform 0.4s ease-in-out;
     }
 
-    /* When table is shown (slided up) */
+    
     .table-wrapper.show {
         transform: translate(-50%, -100%);
     }
 
-    /* Adjust table content for mobile */
     thead {
         font-size: 4vw;
     }
